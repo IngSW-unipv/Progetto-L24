@@ -6,23 +6,16 @@ import java.awt.*;
 
 public class CenterTablePanel extends JPanel {
 
-    private JTable table;
-    private TableModelAttempt tableModelAttempt;
-
     public CenterTablePanel(int attempts) {
 
-        Dimension dim = getPreferredSize();
-        dim.width = 100;
-        setPreferredSize(dim);
-
+//        Dimension dim = getPreferredSize();
+//        dim.width = 200;
+        setPreferredSize(getPreferredSize());
         Border border = BorderFactory.createLineBorder(Color.gray);
-
-        tableModelAttempt = new TableModelAttempt(attempts);
-        table = new JTable(tableModelAttempt);
-
         setBorder(border);
         setLayout(new BorderLayout());
-        add(new JScrollPane(table), BorderLayout.CENTER);
+
+        add(new JScrollPane(new JTable(new TableModelAttempt(attempts))), BorderLayout.CENTER);
 
     }
 

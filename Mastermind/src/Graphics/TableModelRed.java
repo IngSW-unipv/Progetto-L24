@@ -2,19 +2,21 @@ package Graphics;
 
 import javax.swing.table.AbstractTableModel;
 
-public class TableModelAttempt extends AbstractTableModel {
+public class TableModelRed extends AbstractTableModel {
 
     int attempts;
-    String[] columnNames = {"Pin 1", "Pin 2", "Pin 3", "Pin 4"};
 
-    public TableModelAttempt(int attempts) {
+    String columnName = "Red key poles";
+
+    public TableModelRed(int attempts) {
+
         this.attempts = attempts;
 
     }
 
     @Override
     public String getColumnName(int column) {
-        return columnNames[column];
+        return columnName;
     }
 
     @Override
@@ -24,7 +26,7 @@ public class TableModelAttempt extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 1;
     }
 
     @Override

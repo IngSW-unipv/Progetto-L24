@@ -1,0 +1,12 @@
+GIOCARE UNA PARTITA:
+
+	Lo scopo del gioco consiste nel determinare il codice segreto creato dal codificatore in un numero finito di tentativi.
+	Il decifratore inserisce per ogni tentativo una sequenza di colori che vengono analizzati dal codificatore per definire
+	due valori distinti che rappresentano gli indizi sulla qualità del tentativo fornito.
+	Ragionando sui colori e le loro posizioni aiutandosi con i risultati dei tentativi precedenti il decifratore deve
+	tentare di scoprire il codice segreto.
+	Se riesce all'interno dei tentativi permessi il gioco viene vinto dal decifratore; in caso contrario,essendo terminati
+	i tentativi la partita viene persa.
+	
+
+	
