@@ -2,13 +2,14 @@ package Graphics;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainGui extends JFrame {
 
+    int attemptN;
     CenterTablePanel centerTablePanel;
-    LeftTablePanel leftTablePanel;
-    RightTablePanel rightTablePanel;
-    JPanel panel;
+    JPanel bottomPanel, centerPanel;
     DropMenu dropMenu1;
     DropMenu dropMenu2;
     DropMenu dropMenu3;
@@ -17,29 +18,38 @@ public class MainGui extends JFrame {
 
     public MainGui(int attempts) {
         super("Mastermind");
-        Dimension dim = new Dimension(600, 500);
+        attemptN = 0;
+        Dimension dim = new Dimension(600, 300);
         setLayout(new BorderLayout());
 
         centerTablePanel = new CenterTablePanel(attempts);
-        leftTablePanel = new LeftTablePanel(attempts);
-        rightTablePanel = new RightTablePanel(attempts);
-        panel = new JPanel(new FlowLayout());
+        bottomPanel = new JPanel(new FlowLayout());
+        centerPanel = new JPanel(new BorderLayout());
         dropMenu1 = new DropMenu();
         dropMenu2 = new DropMenu();
         dropMenu3 = new DropMenu();
         dropMenu4 = new DropMenu();
         button = new JButton("Conferma");
 
-        add(centerTablePanel, BorderLayout.CENTER);
-        add(leftTablePanel, BorderLayout.LINE_START);
-        add(rightTablePanel, BorderLayout.LINE_END);
-        add(panel, BorderLayout.PAGE_END);
-        centerTablePanel.add(panel, BorderLayout.PAGE_END);
-        panel.add(dropMenu1);
-        panel.add(dropMenu2);
-        panel.add(dropMenu3);
-        panel.add(dropMenu4);
+        add(centerPanel, BorderLayout.CENTER);
+        centerPanel.add(centerTablePanel, BorderLayout.CENTER);
+        centerPanel.add(bottomPanel, BorderLayout.PAGE_END);
+        bottomPanel.add(dropMenu1);
+        bottomPanel.add(dropMenu2);
+        bottomPanel.add(dropMenu3);
+        bottomPanel.add(dropMenu4);
         add(button, BorderLayout.PAGE_END);
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int[] seq = new int[4];
+                seq[0] = dropMenu1.getSelectedIndex();
+                seq[1] = dropMenu2.getSelectedIndex();
+                seq[2] = dropMenu3.getSelectedIndex();
+                seq[3] = dropMenu4.getSelectedIndex();
+            }
+        });
 
         setSize(dim);
         setLocationRelativeTo(null);
