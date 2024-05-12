@@ -12,13 +12,13 @@ public class CodeEvaluation {
             for(int i = 0; i < 4; i++) {
 
                 if(guess[i] == code[i]) {
-                    hints[1] += 1;      // posizione 1 dell'array per pioli indizio rossi
+                    hints[1] += 1;      // posizione 1 dell'array per pioli indizio rightPos
                 } else {
 
                     for(int j = 0; j < 4; j++) {
 
                         if(j != i && guess[i] == code[j]) {
-                            hints[0] += 1;      // posizione 0 dell'array per pioli indizio bianchi
+                            hints[0] += 1;      // posizione 0 dell'array per pioli indizio wrongPos
                         }
 
                     }

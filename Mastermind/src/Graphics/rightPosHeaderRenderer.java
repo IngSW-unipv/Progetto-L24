@@ -4,13 +4,13 @@ import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
-public class RedKeyPolesHeaderRenderer extends JLabel implements TableCellRenderer {
+public class rightPosHeaderRenderer extends JLabel implements TableCellRenderer {
 
-    public RedKeyPolesHeaderRenderer() {
+    public rightPosHeaderRenderer() {
 
         setFont(new Font("Inconsolata", Font.BOLD, 12));
         setOpaque(true);
-        setBackground(Color.red);
+        setBackground(new Color(0,255,0));
         setBorder(BorderFactory.createEtchedBorder());
 
     }

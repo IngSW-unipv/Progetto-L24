@@ -4,14 +4,14 @@ import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
-public class WhiteKeyPolesHeaderRenderer extends JLabel implements TableCellRenderer {
+public class wrongPosHeaderRenderer extends JLabel implements TableCellRenderer {
 
-    public WhiteKeyPolesHeaderRenderer() {
+    public wrongPosHeaderRenderer() {
 
         setFont(new Font("Inconsolata", Font.BOLD, 12));
         setOpaque(true);
         setForeground(Color.black);
-        setBackground(Color.white);
+        setBackground(new Color(0,190,255));
         setBorder(BorderFactory.createEtchedBorder());
     }
 

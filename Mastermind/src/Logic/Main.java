@@ -1,10 +1,7 @@
 package Logic;
 
 import Graphics.MainGui;
-
 import java.util.Arrays;
-
-import static Logic.CodeEvaluation.*;
 
 public class Main {
 
@@ -17,12 +14,6 @@ public class Main {
         Arrays.stream(secretCode).forEach(System.out::println);
         System.out.println();
 
-//        int[] guess = {0,1,2,3};
-//
-//        int[] hints = codeConfront(code,guess);
-//        for (int hint : hints) {
-//            System.out.println(hint);
-//        }
         MainGui gui = new MainGui(secretCode);
     }
 

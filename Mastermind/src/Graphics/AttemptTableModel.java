@@ -6,7 +6,7 @@ import java.awt.*;
 public class AttemptTableModel extends AbstractTableModel {
 
     int attempts;
-    String[] columnNames = {"Pos. corretta", "1°colore", "2°colore", "3°colore", "4°colore", "Pos. errata"};
+    String[] columnNames = {"Pos. errata", "1°colore", "2°colore", "3°colore", "4°colore", "Pos. corretta"};
     private static Color[][] cellColors;
     private static int[][] hints;
 
@@ -22,7 +22,6 @@ public class AttemptTableModel extends AbstractTableModel {
         return columnNames[column];
     }
 
-
     @Override
     public int getRowCount() {
         return attempts;
@@ -31,6 +30,21 @@ public class AttemptTableModel extends AbstractTableModel {
     @Override
     public int getColumnCount() {
         return 6;
+    }
+
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        switch (columnIndex) {
+            case 0:
+                hints[rowIndex][0] = (int) aValue;
+                break;
+            case 5:
+                hints[rowIndex][1] = (int) aValue;
+                break;
+            default:
+                break;
+        }
+        fireTableCellUpdated(rowIndex,columnIndex);
     }
 
     @Override
@@ -53,16 +67,10 @@ public class AttemptTableModel extends AbstractTableModel {
         }
     }
 
-    public void setHints(int row, int column, int hint) {
-        switch (column) {
-            case 0:
-                hints[row][1] = hint;
-                break;
-            case 5:
-                hints[row][0] = hint;
-                break;
-        }
-        fireTableCellUpdated(row, column);
+    public void setHints(int row, int[] hint) {
+        System.arraycopy(hint,0,hints[row],0,hint.length);
+        fireTableCellUpdated(row,0);
+        fireTableCellUpdated(row,5);
     }
     public static int getHints(int row, int column) {
         return hints[row][column];
