@@ -15,6 +15,7 @@ public class AttemptTableModel extends AbstractTableModel {
         this.attempts = attempts;
         cellColors = new Color[attempts][4];
         hints = new int[attempts][2];
+
     }
 
     @Override
@@ -34,22 +35,24 @@ public class AttemptTableModel extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        switch (columnIndex) {
-            case 0:
-                hints[rowIndex][0] = (int) aValue;
-                break;
-            case 5:
-                hints[rowIndex][1] = (int) aValue;
-                break;
-            default:
-                break;
+        if(columnIndex == 5) {
+            hints[rowIndex][1] = (int) aValue;
+            fireTableCellUpdated(rowIndex,columnIndex);
+        } else if (columnIndex == 0) {
+            hints[rowIndex][columnIndex] = (int) aValue;
+            fireTableCellUpdated(rowIndex,columnIndex);
         }
-        fireTableCellUpdated(rowIndex,columnIndex);
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return null;
+        if(columnIndex == 5) {
+            return hints[rowIndex][1];
+        } else if (columnIndex == 0) {
+            return hints[rowIndex][columnIndex];
+        } else {
+            return "";
+        }
     }
 
      public void setCellColor(int row, int column, Color color) {
@@ -65,15 +68,6 @@ public class AttemptTableModel extends AbstractTableModel {
         else {
             return Color.white;
         }
-    }
-
-    public void setHints(int row, int[] hint) {
-        System.arraycopy(hint,0,hints[row],0,hint.length);
-        fireTableCellUpdated(row,0);
-        fireTableCellUpdated(row,5);
-    }
-    public static int getHints(int row, int column) {
-        return hints[row][column];
     }
 
 }

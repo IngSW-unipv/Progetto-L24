@@ -4,11 +4,11 @@ import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
-public class DefaultHeaderRenderer extends JLabel implements TableCellRenderer {
+public class MainHeaderRenderer extends JLabel implements TableCellRenderer {
 
-    public DefaultHeaderRenderer() {
+    public MainHeaderRenderer() {
 
-        setFont(new Font("Inconsolata", Font.BOLD, 12));
+        setFont(new Font("Inconsolata", Font.BOLD, 14));
         setOpaque(true);
         setForeground(Color.white);
         setBackground(Color.darkGray);
