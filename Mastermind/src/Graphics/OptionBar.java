@@ -4,48 +4,60 @@ import javax.swing.*;
 
 public class OptionBar extends JMenuBar {
 
+//    Definizioni:
+
+//    primo menu principale
     JMenu firstMenu;
+//    serie di bottoni per la scelta della difficoltà
     JRadioButton difficultyEasy;
     JRadioButton difficultyNormal;
     JRadioButton difficultyHard;
-    JCheckBox duplicateCheck;
+//    bottone di conferma delle impostazioni scelte
     JMenuItem setButton;
-//    int attempts = 0;
-//    boolean duplicates = false;
+//    gruppo bottoni difficoltà
+    ButtonGroup difficultyGroup;
+//    etichetta descrittiva difficoltà
+    JLabel difficultyLabel;
+//    istanza di interfaccia utile al passaggio del numero
+//    di tentativi all'interfaccia grafica principale
     private AttemptsListener attemptsListener;
 
+//    Costruttore:
 
     public OptionBar() {
 
+//        Inizializzazioni:
+
         firstMenu = new JMenu("File");
-        firstMenu.getAccessibleContext().setAccessibleDescription("Impostazioni generali");
-        this.add(firstMenu);
-        ButtonGroup difficultyGroup = new ButtonGroup();
-        JLabel difficultyLabel = new JLabel("Selezione difficoltà");
-        firstMenu.add(difficultyLabel);
+        difficultyGroup = new ButtonGroup();
         difficultyEasy = new JRadioButton("Facile");
+        difficultyNormal = new JRadioButton("Normale");
+        difficultyHard = new JRadioButton("Difficile");
+        difficultyLabel = new JLabel("Selezione difficoltà");
+        setButton = new JMenuItem("Conferma impostazioni");
+
+//        Definizioni proprietà:
+
+        firstMenu.getAccessibleContext().setAccessibleDescription("Impostazioni generali");
         difficultyEasy.setSelected(true);
-//      inserire codice per la selezione numero tentativi
+
+//        Inserimenti per layout:
+
+        this.add(firstMenu);
+
+        firstMenu.add(difficultyLabel);
         difficultyGroup.add(difficultyEasy);
         firstMenu.add(difficultyEasy);
-        difficultyNormal = new JRadioButton("Normale");
-//      inserire codice per la selezione numero tentativi
         difficultyGroup.add(difficultyNormal);
         firstMenu.add(difficultyNormal);
-        difficultyHard = new JRadioButton("Difficile");
-//      inserire codice per la selezione numero tentativi
         difficultyGroup.add(difficultyHard);
         firstMenu.add(difficultyHard);
         firstMenu.addSeparator();
-        JLabel duplicateLabel = new JLabel("Selezione duplicati");
-        firstMenu.add(duplicateLabel);
-        duplicateCheck = new JCheckBox("Ammetti duplicati");
-//      inserire codice per il supporto ai duplicati
-        duplicateCheck.setSelected(false);
-        firstMenu.add(duplicateCheck);
-        firstMenu.addSeparator();
-        setButton = new JMenuItem("Conferma impostazioni");
+
+//        definizione azioni alla pressione del tasto di conferma
+
         setButton.addActionListener(e -> {
+//            scelta del numero di tentativi in base alla difficoltà selezionata
             if(difficultyEasy.isSelected()) {
                 attemptsListener.difficultyChoose(15);
             } else if (difficultyNormal.isSelected()) {
@@ -53,14 +65,11 @@ public class OptionBar extends JMenuBar {
             } else {
               attemptsListener.difficultyChoose(5);
             }
-            if(duplicateCheck.isSelected()) {
-
-            }
-
-
         });
         firstMenu.add(setButton);
     }
+
+//    metodo per la definizione dell'istanza di interfaccia
 
 public void setAttemptsListener(AttemptsListener attemptsListener) {
 

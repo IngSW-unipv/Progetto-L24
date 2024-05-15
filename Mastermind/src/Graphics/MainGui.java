@@ -66,6 +66,8 @@ public class MainGui extends JFrame {
             @Override
             public void difficultyChoose(int attempts) {
 
+//                definizione thread+++++++++++++++++++
+
 //                Inizializzazioni:
 
 //                Nuovo valore per numero totale tentativi
@@ -79,12 +81,8 @@ public class MainGui extends JFrame {
 //                Aggiornamenti grafici Headers
                 attemptsTablePanel.attemptTable.getTableHeader().getColumnModel().getColumn(0)
                         .setHeaderRenderer(new wrongPosHeaderRenderer());
-//                attemptsTablePanel.attemptTable.getColumnModel().getColumn(0)
-//                        .setCellRenderer(new DefaultTableCellRenderer());
                 attemptsTablePanel.attemptTable.getTableHeader().getColumnModel().getColumn(5)
                         .setHeaderRenderer(new rightPosHeaderRenderer());
-//                attemptsTablePanel.attemptTable.getColumnModel().getColumn(5)
-//                        .setCellRenderer(new DefaultTableCellRenderer());
                 attemptsTablePanel.updateUI();
             }
         });
