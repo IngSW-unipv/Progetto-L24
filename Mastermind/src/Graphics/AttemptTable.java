@@ -15,6 +15,7 @@ public class AttemptTable extends JTable {
         this.setDefaultRenderer(Object.class, attemptTableCellRenderer);
         setCellSelectionEnabled(false);
         this.setBorder(BorderFactory.createRaisedBevelBorder());
+        setFont(new Font("Inconsolata", Font.BOLD, 16));
         endLine = new JPopupMenu();
         endLine.setFont(new Font("Robota", Font.ITALIC, 14));
     }

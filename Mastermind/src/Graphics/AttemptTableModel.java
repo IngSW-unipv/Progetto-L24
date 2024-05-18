@@ -15,7 +15,6 @@ public class AttemptTableModel extends AbstractTableModel {
         this.attempts = attempts;
         cellColors = new Color[attempts][4];
         hints = new int[attempts][2];
-
     }
 
     @Override
@@ -54,6 +53,7 @@ public class AttemptTableModel extends AbstractTableModel {
             return "";
         }
     }
+
 
      public void setCellColor(int row, int column, Color color) {
 

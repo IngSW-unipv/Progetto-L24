@@ -8,7 +8,7 @@ public class wrongPosHeaderRenderer extends JLabel implements TableCellRenderer 
 
     public wrongPosHeaderRenderer() {
 
-        setFont(new Font("Inconsolata", Font.BOLD, 12));
+        setFont(new Font("Inconsolata", Font.BOLD, 14));
         setOpaque(true);
         setForeground(Color.black);
         setBackground(new Color(0,190,255));

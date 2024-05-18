@@ -4,7 +4,6 @@ import Logic.CodeEvaluation;
 import Logic.Player;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 import java.util.stream.Stream;
 
@@ -13,6 +12,7 @@ public class MainGui extends JFrame {
     int totAttempts = 0, attemptN = 0;
     int[] sequence, hints;
     Player player;
+    CodeEvaluation codeEvaluation;
     AttemptTableModel attemptTableModel;
 
     public MainGui(int[] secretCode) {
@@ -66,8 +66,6 @@ public class MainGui extends JFrame {
             @Override
             public void difficultyChoose(int attempts) {
 
-//                definizione thread+++++++++++++++++++
-
 //                Inizializzazioni:
 
 //                Nuovo valore per numero totale tentativi
@@ -77,11 +75,11 @@ public class MainGui extends JFrame {
 //                Nuovo modello tabella per aggiornamento righe
                 attemptTableModel = new AttemptTableModel(totAttempts);
 //                Applicazione modello alla tabella
-                attemptsTablePanel.attemptTable.setModel(attemptTableModel);
+                attemptsTablePanel.getAttemptTable().setModel(attemptTableModel);
 //                Aggiornamenti grafici Headers
-                attemptsTablePanel.attemptTable.getTableHeader().getColumnModel().getColumn(0)
+                attemptsTablePanel.getAttemptTable().getTableHeader().getColumnModel().getColumn(0)
                         .setHeaderRenderer(new wrongPosHeaderRenderer());
-                attemptsTablePanel.attemptTable.getTableHeader().getColumnModel().getColumn(5)
+                attemptsTablePanel.getAttemptTable().getTableHeader().getColumnModel().getColumn(5)
                         .setHeaderRenderer(new rightPosHeaderRenderer());
                 attemptsTablePanel.updateUI();
             }
@@ -116,13 +114,26 @@ public class MainGui extends JFrame {
 //                        Salvataggio sequenza tra informazioni giocatore
                         player.setSequence(attemptN, sequence);
 //                        Verifica tentativo
-                        System.arraycopy(CodeEvaluation.codeConfront(secretCode, sequence), 0, hints, 0, 2);
+
+                        codeEvaluation = new CodeEvaluation();
+                        codeEvaluation.setCode(secretCode);
+                        codeEvaluation.setGuess(sequence);
+
+                        codeEvaluation.start();
+
+                        try {
+                            codeEvaluation.join();
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+                        System.arraycopy(codeEvaluation.getHints(), 0, hints, 0, 2);
 //                        Console check
                         System.out.println("indizi: " + hints[0] + " " + hints[1]);
 //                        Inserimento indizi in tabella
 
-                        attemptsTablePanel.attemptTable.getModel().setValueAt(hints[0], attemptN, 0);
-                        attemptsTablePanel.attemptTable.getModel().setValueAt(hints[1], attemptN, 5);
+                        attemptsTablePanel.getAttemptTable().getModel().setValueAt(hints[0], attemptN, 0);
+                        attemptsTablePanel.getAttemptTable().getModel().setValueAt(hints[1], attemptN, 5);
 
 //                        Incremento tentativo odierno
                         attemptN += 1;
@@ -130,21 +141,21 @@ public class MainGui extends JFrame {
 //                        Azioni in caso di vittoria
 
                         if (hints[1] == 4) {
-                            attemptsTablePanel.attemptTable.endLine.add("Congratulazioni! Hai indovinato il codice segreto");
-                            attemptsTablePanel.attemptTable.endLine.setSize(attemptsTablePanel.attemptTable.endLine.getPreferredSize());
-                            attemptsTablePanel.attemptTable.endLine.setLocation(this.getLocation());
-                            attemptsTablePanel.attemptTable.endLine.setVisible(true);
+                            attemptsTablePanel.getAttemptTable().endLine.add("Congratulazioni! Hai indovinato il codice segreto");
+                            attemptsTablePanel.getAttemptTable().endLine.setSize(attemptsTablePanel.getAttemptTable().endLine.getPreferredSize());
+                            attemptsTablePanel.getAttemptTable().endLine.setLocation(this.getLocation());
+                            attemptsTablePanel.getAttemptTable().endLine.setVisible(true);
                         }
 
 //                        Azioni in caso di sconfitta
 
                         if (attemptN == totAttempts && hints[1] != 4) {
-                            attemptsTablePanel.attemptTable.endLine.add("Peccato! Hai terminato i tentativi. Il codice corretto è: " +
+                            attemptsTablePanel.getAttemptTable().endLine.add("Peccato! Hai terminato i tentativi. Il codice corretto è: " +
                                     Colors.values()[secretCode[0]].getNomeColore() + ", " + Colors.values()[secretCode[1]].getNomeColore() +
                                     ", " + Colors.values()[secretCode[2]].getNomeColore() + ", " + Colors.values()[secretCode[3]].getNomeColore());
-                            attemptsTablePanel.attemptTable.endLine.setSize(attemptsTablePanel.attemptTable.endLine.getPreferredSize());
-                            attemptsTablePanel.attemptTable.endLine.setLocation(this.getLocation());
-                            attemptsTablePanel.attemptTable.endLine.setVisible(true);
+                            attemptsTablePanel.getAttemptTable().endLine.setSize(attemptsTablePanel.getAttemptTable().endLine.getPreferredSize());
+                            attemptsTablePanel.getAttemptTable().endLine.setLocation(this.getLocation());
+                            attemptsTablePanel.getAttemptTable().endLine.setVisible(true);
                         }
                     }
                 }

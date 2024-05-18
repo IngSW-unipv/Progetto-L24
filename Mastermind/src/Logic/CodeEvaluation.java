@@ -1,11 +1,45 @@
-package Logic;
+package Logic;  //definisce il package in cui è contenuta la classe CodeEvaluation
 
-public class CodeEvaluation {
+public class CodeEvaluation extends Thread {
 
-    private static int[] hints = new int[2];
+//    Definizioni:
 
-    public static int[] codeConfront(int[] code, int[] guess) {
+//    codice segreto
+    private int[] code;
+//    tentativo corrente
+    private int[] guess;
+//    indizi sul tentativo corrente
+    private final int[] hints;
 
+//    Costruttore:
+
+    public CodeEvaluation() {
+//        Inizializzazioni:
+
+        code = new int[4];
+        guess = new int[4];
+        hints = new int[2];
+
+    }
+
+//    metodo setter per codice segreto
+    public void setCode(int[] code) {
+        this.code = code;
+    }
+
+//    metodo setter per tentativo corrente
+    public void setGuess(int[] guess) {
+        this.guess = guess;
+    }
+
+//    metodo getter per indizi correnti
+    public int[] getHints() {
+        return hints;
+    }
+
+//    metodo di esecuzione istruzioni nel Thread
+    @Override
+    public synchronized void run() {
         hints[0] = 0;
         hints[1] = 0;
         try {
@@ -26,9 +60,7 @@ public class CodeEvaluation {
                 }
             }
         }catch (Exception e) {
-            System.out.println("An error occured during code evaluation!");
-            return hints;
+            System.out.println("An error occurred during code evaluation!");
         }
-        return hints;
     }
 }

@@ -1,4 +1,4 @@
-package Logic;
+package Logic;  //Definisce il Package in cui è contenuta la classe Player
 
 public class Player {
 
@@ -13,7 +13,7 @@ public class Player {
 
     public Player(int attempts) {
 
-//        Inizializzazioni variabili:
+//        Inizializzazioni:
 
         this.attempts = attempts;
         sequences = new int[attempts][4];
@@ -27,6 +27,7 @@ public class Player {
 
 //    metodo di richiamo di una sequenza della matrice
 
+    @SuppressWarnings("unused")
     public int[] getSequence(int tryN) {
         return sequences[tryN];
     }

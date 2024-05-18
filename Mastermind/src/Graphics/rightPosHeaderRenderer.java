@@ -8,7 +8,7 @@ public class rightPosHeaderRenderer extends JLabel implements TableCellRenderer 
 
     public rightPosHeaderRenderer() {
 
-        setFont(new Font("Inconsolata", Font.BOLD, 12));
+        setFont(new Font("Inconsolata", Font.BOLD, 14));
         setOpaque(true);
         setBackground(new Color(0,255,0));
         setBorder(BorderFactory.createEtchedBorder());
