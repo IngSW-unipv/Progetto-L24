@@ -1,36 +1,47 @@
-package Graphics;
-
+package Graphics;   //Definisce il package in cui si trova la classe MainGui
+//importazioni utili alla corretta definizione di aspetti grafici, informazioni su altre classi
+//e operazioni sequenziali
 import Logic.CodeEvaluation;
 import Logic.Player;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.stream.Stream;
 
 public class MainGui extends JFrame {
+//    Definizioni:
 
+//    numero totale tentativi e tentativo corrente
     int totAttempts = 0, attemptN = 0;
+//    sequenza di colori e indizi
     int[] sequence, hints;
+//    giocatore della partita
     Player player;
+//    istanza di controllo tentativi
     CodeEvaluation codeEvaluation;
+//    modello di base della tabella di gioco
     AttemptTableModel attemptTableModel;
+//    Costruttore:
 
     public MainGui(int[] secretCode) {
+//        inserimento titolo finestra
         super("Mastermind");
+//        definizione dimensioni
         Dimension dimension = new Dimension(600, 300);
         setPreferredSize(dimension);
+//        definizione layout finestra
         setLayout(new BorderLayout());
-
-        sequence = new int[4];
-        hints = new int[2];
-
-        String[] listaColori;
+//        definizione lista totale colori
+        final String[] listaColori;
+//        inizializzazione lista colori
         listaColori = new String[Colors.values().length];
+//        inserimento stringhe provenienti da enum Colors
         for(int i = 0; i < listaColori.length;i++) {
             listaColori[i] = Colors.values()[i].getNomeColore();
         }
 //        Inizializzazioni:
 
+        sequence = new int[4];
+        hints = new int[2];
 //        Barra menu
         OptionBar optionBar = new OptionBar();
 //        Pannello centrale per la tabella
@@ -39,6 +50,7 @@ public class MainGui extends JFrame {
         JPanel choicePanel = new JPanel(new FlowLayout());
 //        Menu a tendina per la scelta dei colori
         ComboBox[] comboBoxes = new ComboBox[4];
+//        inserimento stringhe lista colori nei menu a tendina
         for (int i = 0; i < comboBoxes.length; i++) {
             comboBoxes[i] = new ComboBox(listaColori);
         }
@@ -62,6 +74,7 @@ public class MainGui extends JFrame {
 
 //        Listener per la scelta delle impostazioni di gioco
 
+        //noinspection Convert2Lambda
         optionBar.setAttemptsListener(new AttemptsListener() {
             @Override
             public void difficultyChoose(int attempts) {
@@ -111,50 +124,63 @@ public class MainGui extends JFrame {
 //                            Visualizzazione colori nella tabella
                             attemptTableModel.setCellColor(attemptN,i+1,Colors.values()[sequence[i]].getColoreRGB());
                         }
-//                        Salvataggio sequenza tra informazioni giocatore
+//                        Salvataggio sequenza tentativo in informazioni giocatore
                         player.setSequence(attemptN, sequence);
-//                        Verifica tentativo
+//                        Preparativi inizio thread di controllo sequenza:
 
+//                        nuova istanza di verifica per tentativo corrente
                         codeEvaluation = new CodeEvaluation();
+//                        inserimento codice segreto
                         codeEvaluation.setCode(secretCode);
+//                        inserimento sequenza tentativo corrente
                         codeEvaluation.setGuess(sequence);
-
+//                        inizio thread di verifica
                         codeEvaluation.start();
-
+//                        attesa fine operazioni di verifica ed eventuale eccezione
                         try {
                             codeEvaluation.join();
                         } catch (InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }
-
+//                        salvataggio indizi in variabile locale
                         System.arraycopy(codeEvaluation.getHints(), 0, hints, 0, 2);
-//                        Console check
-                        System.out.println("indizi: " + hints[0] + " " + hints[1]);
 //                        Inserimento indizi in tabella
-
                         attemptsTablePanel.getAttemptTable().getModel().setValueAt(hints[0], attemptN, 0);
                         attemptsTablePanel.getAttemptTable().getModel().setValueAt(hints[1], attemptN, 5);
-
 //                        Incremento tentativo odierno
                         attemptN += 1;
 
 //                        Azioni in caso di vittoria
 
                         if (hints[1] == 4) {
+//                            visualizzazione popup vittoria
                             attemptsTablePanel.getAttemptTable().endLine.add("Congratulazioni! Hai indovinato il codice segreto");
+//                            impostazioni finestra di popup vittoria
                             attemptsTablePanel.getAttemptTable().endLine.setSize(attemptsTablePanel.getAttemptTable().endLine.getPreferredSize());
-                            attemptsTablePanel.getAttemptTable().endLine.setLocation(this.getLocation());
+//                            definizione punto ottimale per popup
+                            Point p = this.getLocation();
+                            p.y -= 40;
+//                            applicazione punto ottimale a popup
+                            attemptsTablePanel.getAttemptTable().endLine.setLocation(p);
+//                            impostazione visibilità
                             attemptsTablePanel.getAttemptTable().endLine.setVisible(true);
                         }
 
 //                        Azioni in caso di sconfitta
 
                         if (attemptN == totAttempts && hints[1] != 4) {
+//                            visualizzazione popup sconfitta con codice segreto
                             attemptsTablePanel.getAttemptTable().endLine.add("Peccato! Hai terminato i tentativi. Il codice corretto è: " +
                                     Colors.values()[secretCode[0]].getNomeColore() + ", " + Colors.values()[secretCode[1]].getNomeColore() +
                                     ", " + Colors.values()[secretCode[2]].getNomeColore() + ", " + Colors.values()[secretCode[3]].getNomeColore());
+//                            impostazioni finestra popup sconfitta
                             attemptsTablePanel.getAttemptTable().endLine.setSize(attemptsTablePanel.getAttemptTable().endLine.getPreferredSize());
-                            attemptsTablePanel.getAttemptTable().endLine.setLocation(this.getLocation());
+                            //                            definizione punto ottimale per popup
+                            Point p = this.getLocation();
+                            p.y -= 40;
+//                            applicazione punto ottimale a popup
+                            attemptsTablePanel.getAttemptTable().endLine.setLocation(p);
+//                            impostazione visibilità
                             attemptsTablePanel.getAttemptTable().endLine.setVisible(true);
                         }
                     }
@@ -162,12 +188,15 @@ public class MainGui extends JFrame {
             }
 
         });
+//        Impostazioni:
 
-//        Impostazioni finestra
-
+//        dimensione finestra
         setSize(getPreferredSize());
+//        posizione finestra
         setLocationRelativeTo(null);
+//        terminazione programma alla chiusura finestra
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+//        visibilità
         setVisible(true);
 
 

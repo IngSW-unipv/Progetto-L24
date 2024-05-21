@@ -1,5 +1,5 @@
-package Graphics;
-
+package Graphics;   //Definisce il package in cui si trova la classe OptionBar
+// importazioni utili alla corretta definizione aspetti grafici
 import javax.swing.*;
 
 public class OptionBar extends JMenuBar {
@@ -75,5 +75,5 @@ public void setAttemptsListener(AttemptsListener attemptsListener) {
 
         this.attemptsListener = attemptsListener;
 
-}
+    }
 }

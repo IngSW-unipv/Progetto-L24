@@ -46,13 +46,13 @@ public class AttemptsTablePanel extends JPanel {
         add(new JScrollPane(attemptTable), BorderLayout.CENTER);
 
     }
-
+//    metodo di acquisizione tabella
     public AttemptTable getAttemptTable() {
         return attemptTable;
     }
+//    metodo di acquisizione modello tabella
     @SuppressWarnings("unused")
     public AttemptTableModel getAttemptTableModel() {
         return attemptTableModel;
     }
-
 }
