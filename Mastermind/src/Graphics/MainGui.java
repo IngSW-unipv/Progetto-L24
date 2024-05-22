@@ -42,6 +42,8 @@ public class MainGui extends JFrame {
 
         sequence = new int[4];
         hints = new int[2];
+//        Dichiarazioni interne:
+
 //        Barra menu
         OptionBar optionBar = new OptionBar();
 //        Pannello centrale per la tabella

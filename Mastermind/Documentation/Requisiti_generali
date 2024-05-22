@@ -2,7 +2,7 @@ REQUISITI FUNZIONALI:
 
 	- Il sistema deve permettere agli utenti di completare una partita al gioco da tavolo Mastermind.
 	
-	- Il numero di tentativi di decriptazione deciso è 10.
+	- Il numero di tentativi di decriptazione deciso varia in base alla difficoltà scelta da 5 a 15.
 	
 	- Per poter giocare è necessaria un'interfaccia grafica che permetta all'utente di visualizzare facilmente
 	    i colori dei codici inseriti e forniti dal sistema per la decriptazione.
@@ -10,12 +10,12 @@ REQUISITI FUNZIONALI:
 	- Viene richiesto un processo per la generazione autonoma e pseudocasuale del codice da decifrare.
 
 	- Alla richiesta di un utente a partecipare ad una partita il sistema deve scegliere la sequenza da decifrare e
-	    preparare l'inerfaccia per la decriptazione.
+	    preparare l'interfaccia per la decriptazione.
 
-	- Una sottointerfaccia permette all'utente di decidere la sequenza da inserire senza che vi siano ostruzioni
+	- Una sotto-interfaccia permette all'utente di decidere la sequenza da inserire senza che vi siano ostruzioni
 	    alla vista delle precedenti.
 	
-	- Alla conferma di inserimento della sequenza il sistema deve fornire l'elenco dei colori relativi agli indizi
+	- Alla conferma di inserimento della sequenza il sistema deve fornire l'elenco degli indizi
 	    per l'utente.
 	
 	- In caso di corretta sequenza il sistema deve permettere all'utente di visualizzare la cronologia delle sequenze
@@ -34,11 +34,9 @@ REQUISITI NON FUNZIONALI:
 	
 	- Il sistema deve permettere il mantenimento in memoria delle sequenze precedentemente inserite.
 	  
-	- Il sistema deve essere utilizzabile da utenti dagli 8+ anni e sanza alcuna forma di preparazione o addestramento.
+	- Il sistema deve essere utilizzabile da utenti dagli 8+ anni e senza alcuna forma di preparazione o addestramento.
 	
-	- Viene richesta la massima compatibilità con tutte le architetture descktop e laptop.
-	
-	- *In caso di malfunzionamenti deve essere previsto un file di log per l'analisi.
+	- Viene richiesta la massima compatibilità con tutte le architetture desktop e laptop.
 
 NOTA:	Informazioni aggiuntive sullo svolgimento del gioco vengono descritte in un documento a parte
         con l'elenco delle regole.
