@@ -1,0 +1,30 @@
+SCOPO DEL GIOCO:
+
+	Decifrare entro un numero stabilito di tentativi la sequenza di colori definita dal codificatore.
+	
+GIOCATORI:
+
+	Sono necessari un codificatore che crea la sequenza di colori da decifrare e un decifratore che sfrutta i tentativi
+	a disposizione per tentare di scoprire la combinazione corretta.
+	
+REGOLE:
+
+	All'inizio del gioco il codificatore decide la sequenza di 4 pioli codice colorati tra i sei disponibili
+	(arancio, giallo, verde, blu, rosa, nero);il decifratore non deve vedere la sequenza decisa dal codificatore.
+	Definita la sequenza, il decifratore inizia il suo turno decidendo una combinazione di 4 colori da sottoporre
+	in esame al codificatore il quale fornirà indizi sulla correttezza della sequenza inserita attraverso l'uso
+	di pioli chiave colorati:
+	-	Il piolo chiave azzurro indica la presenza di un colore corretto ma in posizione sbagliata nella sequenza
+	-	Il piolo chiave verde indica la presenza di un colore corretto in posizione corretta nella sequenza
+	L'assenza di informazione ovvero di un piolo chiave indica la presenza di un piolo della sequenza errato.
+	Attraverso l'elenco dei pioli chiave forniti dal codificatore, il decifratore deve sfruttare queste informazioni
+	per avvicinarsi alla sequenza corretta nel tentativo successivo.
+	Questi passaggi vengono ripetuti per tutti i tentativi disponibili.
+	
+TERMINE DEL GIOCO:
+
+	Il gioco termina in due possibili modi:
+	-	Se il decifratore riesce nei tentativi disponibili a fornire l'esatta sequenza di pioli codice definita
+	    del codificatore attraverso l'informazione presente nei pioli chiave
+		(4 pioli chiave rossi).
+	-	Se terminano i tentativi a disposizione del decifratore senza che sia riuscito a fornire l'esatta sequenza.
