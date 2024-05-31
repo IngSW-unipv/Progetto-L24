@@ -1,4 +1,4 @@
-package Graphics;   //Definisce il package in cui è contenuta la classe AttemptTableCellRenderer
+package graphics;   //Definisce il package in cui è contenuta la classe AttemptTableCellRenderer
 // importazioni utili alla corretta definizione aspetti grafici
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;

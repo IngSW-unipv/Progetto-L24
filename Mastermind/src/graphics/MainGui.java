@@ -1,8 +1,8 @@
-package Graphics;   //Definisce il package in cui si trova la classe MainGui
+package graphics;   //Definisce il package in cui si trova la classe MainGui
 //importazioni utili alla corretta definizione di aspetti grafici, informazioni su altre classi
 //e operazioni sequenziali
-import Logic.CodeEvaluation;
-import Logic.Player;
+import logic.CodeEvaluation;
+import logic.Player;
 import javax.swing.*;
 import java.awt.*;
 import java.util.stream.Stream;
@@ -26,7 +26,7 @@ public class MainGui extends JFrame {
 //        inserimento titolo finestra
         super("Mastermind");
 //        definizione dimensioni
-        Dimension dimension = new Dimension(600, 300);
+        Dimension dimension = new Dimension(800, 450);
         setPreferredSize(dimension);
 //        definizione layout finestra
         setLayout(new BorderLayout());
@@ -58,6 +58,7 @@ public class MainGui extends JFrame {
         }
 //        Bottone per la conferma dei colori
         CheckButton checkButton = new CheckButton();
+
 
 //        Inserimenti:
 
@@ -156,7 +157,7 @@ public class MainGui extends JFrame {
 
                         if (hints[1] == 4) {
 //                            visualizzazione popup vittoria
-                            attemptsTablePanel.getAttemptTable().endLine.add("Congratulazioni! Hai indovinato il codice segreto");
+                            attemptsTablePanel.getAttemptTable().endLine.add("Congratulazioni! Hai indovinato il codice segreto in" + attemptN+ " mosse");
 //                            impostazioni finestra di popup vittoria
                             attemptsTablePanel.getAttemptTable().endLine.setSize(attemptsTablePanel.getAttemptTable().endLine.getPreferredSize());
 //                            definizione punto ottimale per popup

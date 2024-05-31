@@ -1,4 +1,4 @@
-package Logic;  //definisce il package in cui è contenuta la classe CodeEvaluation
+package logic;  //definisce il package in cui è contenuta la classe CodeEvaluation
 
 public class CodeEvaluation extends Thread {
 

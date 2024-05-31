@@ -1,4 +1,4 @@
-package Logic;  //Definisce il Package in cui è contenuta la classe Player
+package logic;  //Definisce il Package in cui è contenuta la classe Player
 
 public class Player {
 

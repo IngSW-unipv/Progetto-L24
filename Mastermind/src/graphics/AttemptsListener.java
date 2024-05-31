@@ -1,4 +1,4 @@
-package Graphics;   //Definisce il package in cui è contenuta l'interfaccia AttemptListener
+package graphics;   //Definisce il package in cui è contenuta l'interfaccia AttemptListener
 
 public interface AttemptsListener {
 

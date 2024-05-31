@@ -1,4 +1,4 @@
-package Logic;  //Definisce il package in cui si trova la classe Main
+package logic;  //Definisce il package in cui si trova la classe Main
 
 public class Main {
 

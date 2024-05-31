@@ -1,4 +1,4 @@
-package Graphics;   //Definisce il package in cui è contenuto l' enum Colors
+package graphics;   //Definisce il package in cui è contenuto l' enum Colors
 // importazioni utili alla corretta definizione aspetti grafici
 import java.awt.*;
 

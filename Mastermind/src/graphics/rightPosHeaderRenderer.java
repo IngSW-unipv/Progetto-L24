@@ -1,21 +1,23 @@
-package Graphics;   //Definisce il package in cui si trova la classe MainHeaderRenderer
+package graphics;   //Definisce il package in cui si trova la classe rightPosHeaderRenderer
 // importazioni utili alla corretta definizione aspetti grafici
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
-public class MainHeaderRenderer extends JLabel implements TableCellRenderer {
+public class rightPosHeaderRenderer extends JLabel implements TableCellRenderer {
 //    Costruttore:
 
-    public MainHeaderRenderer() {
-//        definizione e applicazione nuovo font header
-        setFont(new Font("Inconsolata", Font.BOLD, 14));
-//        impostazione opacità
+    public rightPosHeaderRenderer() {
+//        definizione e applicazione nuovo font
+        setFont(new Font("Inconsolata", Font.BOLD, 20));
+
+        setHorizontalAlignment(CENTER);
+
+
+//        impostazione di opacità
         setOpaque(true);
-//        impostazione colore testo "bianco"
-        setForeground(Color.white);
-//        impostazione colore di sfondo "nero"
-        setBackground(Color.darkGray);
+//        impostazione colore di sfondo "verde brillante"
+        setBackground(new Color(0,255,0));
 //        definizione e applicazione nuovo bordo
         setBorder(BorderFactory.createEtchedBorder());
     }
@@ -25,7 +27,7 @@ public class MainHeaderRenderer extends JLabel implements TableCellRenderer {
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
 //        conversione valori numerici in stringhe
         setText(value.toString());
-//        ritorno del renderer
+//        ritorno renderer
         return this;
     }
 }

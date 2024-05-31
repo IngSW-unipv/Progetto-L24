@@ -1,6 +1,6 @@
-package Logic;  //Definisce il package in cui si trova la classe Game
+package logic;  //Definisce il package in cui si trova la classe Game
 
-import Graphics.MainGui;    //definisce l'importazione della classe MainGui dal package Graphics
+import graphics.MainGui;    //definisce l'importazione della classe MainGui dal package Graphics
 
 public class Game extends Thread {
 

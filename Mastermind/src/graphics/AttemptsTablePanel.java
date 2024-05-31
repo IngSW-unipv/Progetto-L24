@@ -1,4 +1,4 @@
-package Graphics;   //Definisce il Package in cui è contenuta la classe AttemptTablePanel
+package graphics;   //Definisce il Package in cui è contenuta la classe AttemptTablePanel
 
 //Serie di importazioni per la corretta gestione dell'interfaccia grafica
 import javax.swing.*;

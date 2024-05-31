@@ -1,4 +1,4 @@
-package Graphics;   //definisce il package in cui si trova la classe wrongPosHeaderRenderer
+package graphics;   //definisce il package in cui si trova la classe wrongPosHeaderRenderer
 // importazioni utili alla corretta definizione aspetti grafici
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
@@ -10,7 +10,10 @@ public class wrongPosHeaderRenderer extends JLabel implements TableCellRenderer 
     public wrongPosHeaderRenderer() {
 
 //        definizione e applicazione nuovo font
-        setFont(new Font("Inconsolata", Font.BOLD, 14));
+        setFont(new Font("Inconsolata", Font.BOLD, 20));
+
+        setHorizontalAlignment(CENTER);
+
 //        impostazione di opacità
         setOpaque(true);
 //        impostazione colore di testo

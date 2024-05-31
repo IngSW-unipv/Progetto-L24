@@ -1,4 +1,4 @@
-package Graphics;   //Definisce il package in cui è contenuta la classe AttemptTableModel
+package graphics;   //Definisce il package in cui è contenuta la classe AttemptTableModel
 // importazioni utili alla corretta definizione aspetti grafici
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package Graphics;   //Definisce il package in cui si trova la classe OptionBar
+package graphics;   //Definisce il package in cui si trova la classe OptionBar
 // importazioni utili alla corretta definizione aspetti grafici
 import javax.swing.*;
 
