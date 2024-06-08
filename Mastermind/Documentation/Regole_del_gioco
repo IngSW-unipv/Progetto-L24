@@ -9,7 +9,7 @@ GIOCATORI:
 	
 REGOLE:
 
-	All'inizio del gioco il codificatore decide la sequenza di 4 pioli codice colorati tra i sei disponibili
+	All'inizio del gioco il codificatore decide la sequenza di 4 pioli codice colorati tra quelli disponibili
 	(arancio, giallo, verde, blu, rosa, nero);il decifratore non deve vedere la sequenza decisa dal codificatore.
 	Definita la sequenza, il decifratore inizia il suo turno decidendo una combinazione di 4 colori da sottoporre
 	in esame al codificatore il quale fornirà indizi sulla correttezza della sequenza inserita attraverso l'uso
@@ -26,5 +26,5 @@ TERMINE DEL GIOCO:
 	Il gioco termina in due possibili modi:
 	-	Se il decifratore riesce nei tentativi disponibili a fornire l'esatta sequenza di pioli codice definita
 	    del codificatore attraverso l'informazione presente nei pioli chiave
-		(4 pioli chiave rossi).
+		(4 pioli chiave verdi).
 	-	Se terminano i tentativi a disposizione del decifratore senza che sia riuscito a fornire l'esatta sequenza.

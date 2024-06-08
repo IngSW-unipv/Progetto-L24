@@ -10,10 +10,8 @@ public class rightPosHeaderRenderer extends JLabel implements TableCellRenderer 
     public rightPosHeaderRenderer() {
 //        definizione e applicazione nuovo font
         setFont(new Font("Inconsolata", Font.BOLD, 20));
-
+//        impostazione di allineamento centrato del testo
         setHorizontalAlignment(CENTER);
-
-
 //        impostazione di opacità
         setOpaque(true);
 //        impostazione colore di sfondo "verde brillante"

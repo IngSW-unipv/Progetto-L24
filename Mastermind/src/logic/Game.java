@@ -1,6 +1,7 @@
 package logic;  //Definisce il package in cui si trova la classe Game
 
 import graphics.MainGui;    //definisce l'importazione della classe MainGui dal package Graphics
+import graphics.Colors;     //definisce l'importazione di Enum Colors per l'acquisizione del numero di entità
 
 public class Game extends Thread {
 
@@ -40,17 +41,19 @@ public class Game extends Thread {
 //    metodo per la generazione di codici segreti
 
     private void setSecretCode() {
+//        definizione numero totale di colori disponibili
+        int colorDim = Colors.values().length;
 //        inizializzazione cella 0 con valore pseudocasuale calcolato
-        secretCode[0] = (int) (Math.random() * 6);
+        secretCode[0] = (int) (Math.random() * colorDim);
 //        ripetizione generazione valori per altre celle
         for (int i = 1; i < secretCode.length; i++) {
 
-            secretCode[i] = (int) (Math.random() * 6);
+            secretCode[i] = (int) (Math.random() * colorDim);
 //            esclusione valori doppi
             for(int j = 0; j < i; j++) {
 
                 while (secretCode[i] == secretCode[j]) {
-                    secretCode[i] = (int) (Math.random() * 6);
+                    secretCode[i] = (int) (Math.random() * colorDim);
                     j = 0;
                 }
             }

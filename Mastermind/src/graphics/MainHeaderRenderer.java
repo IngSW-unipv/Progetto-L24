@@ -10,10 +10,8 @@ public class MainHeaderRenderer extends JLabel implements TableCellRenderer {
     public MainHeaderRenderer() {
 //        definizione e applicazione nuovo font header
         setFont(new Font("Inconsolata", Font.BOLD, 20));
-
+//        impostazione di allineamento centrato del testo
         setHorizontalAlignment(CENTER);
-
-
 //        impostazione opacità
         setOpaque(true);
 //        impostazione colore testo "bianco"

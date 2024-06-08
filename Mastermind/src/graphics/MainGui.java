@@ -97,7 +97,10 @@ public class MainGui extends JFrame {
                         .setHeaderRenderer(new wrongPosHeaderRenderer());
                 attemptsTablePanel.getAttemptTable().getTableHeader().getColumnModel().getColumn(5)
                         .setHeaderRenderer(new rightPosHeaderRenderer());
+//                impostazione visibilità popup per eventuale nuovo gioco
+                attemptsTablePanel.getAttemptTable().popup.setVisible(false);
                 attemptsTablePanel.updateUI();
+
             }
         });
 
@@ -157,34 +160,14 @@ public class MainGui extends JFrame {
 
                         if (hints[1] == 4) {
 //                            visualizzazione popup vittoria
-                            attemptsTablePanel.getAttemptTable().endLine.add("Congratulazioni! Hai indovinato il codice segreto in" + attemptN+ " mosse");
-//                            impostazioni finestra di popup vittoria
-                            attemptsTablePanel.getAttemptTable().endLine.setSize(attemptsTablePanel.getAttemptTable().endLine.getPreferredSize());
-//                            definizione punto ottimale per popup
-                            Point p = this.getLocation();
-                            p.y -= 40;
-//                            applicazione punto ottimale a popup
-                            attemptsTablePanel.getAttemptTable().endLine.setLocation(p);
-//                            impostazione visibilità
-                            attemptsTablePanel.getAttemptTable().endLine.setVisible(true);
+                            attemptsTablePanel.getAttemptTable().popup.setVictoryMessage(attemptN);
                         }
 
 //                        Azioni in caso di sconfitta
 
                         if (attemptN == totAttempts && hints[1] != 4) {
 //                            visualizzazione popup sconfitta con codice segreto
-                            attemptsTablePanel.getAttemptTable().endLine.add("Peccato! Hai terminato i tentativi. Il codice corretto è: " +
-                                    Colors.values()[secretCode[0]].getNomeColore() + ", " + Colors.values()[secretCode[1]].getNomeColore() +
-                                    ", " + Colors.values()[secretCode[2]].getNomeColore() + ", " + Colors.values()[secretCode[3]].getNomeColore());
-//                            impostazioni finestra popup sconfitta
-                            attemptsTablePanel.getAttemptTable().endLine.setSize(attemptsTablePanel.getAttemptTable().endLine.getPreferredSize());
-                            //                            definizione punto ottimale per popup
-                            Point p = this.getLocation();
-                            p.y -= 40;
-//                            applicazione punto ottimale a popup
-                            attemptsTablePanel.getAttemptTable().endLine.setLocation(p);
-//                            impostazione visibilità
-                            attemptsTablePanel.getAttemptTable().endLine.setVisible(true);
+                            attemptsTablePanel.getAttemptTable().popup.setLooseMessage(secretCode);
                         }
                     }
                 }

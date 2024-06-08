@@ -7,7 +7,7 @@ public class AttemptTable extends JTable {
 //    Dichiarazioni:
 
 //    popup di fine partita
-    JPopupMenu endLine;
+    EndGamePopup popup;
 
 //    Costruttore:
 
@@ -17,21 +17,18 @@ public class AttemptTable extends JTable {
 
         super(attemptTableModel);
         AttemptTableCellRenderer attemptTableCellRenderer = new AttemptTableCellRenderer();
-        endLine = new JPopupMenu();
+        popup = new EndGamePopup();
 //        allineamento testo visualizzato attraverso il CellRenderer
         attemptTableCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
 //        applicazione renderer alla tabella
         this.setDefaultRenderer(Object.class, attemptTableCellRenderer);
 //        disabilitazione selezione celle
         setCellSelectionEnabled(false);
-
+//        impostazione di altezza celle
         setRowHeight(57);
-
 //        creazione e applicazione nuovo bordo
         this.setBorder(BorderFactory.createRaisedBevelBorder());
 //        creazione nuovo font per testo visualizzato
         setFont(new Font("Inconsolata", Font.BOLD, 16));
-//        definizione nuovo font per popup di fine partita
-        endLine.setFont(new Font("Robota", Font.ITALIC, 14));
     }
 }
