@@ -40,7 +40,7 @@ public class Game extends Thread {
 
 //    metodo per la generazione di codici segreti
 
-    private void setSecretCode() {
+    void setSecretCode() {
 //        definizione numero totale di colori disponibili
         int colorDim = Colors.values().length;
 //        inizializzazione cella 0 con valore pseudocasuale calcolato
