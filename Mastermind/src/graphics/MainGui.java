@@ -12,8 +12,8 @@ public class MainGui extends JFrame {
 
 //    numero totale tentativi e tentativo corrente
     int totAttempts = 0, attemptN = 0;
-//    sequenza di colori e indizi
-    int[] sequence, hints;
+//    sequenza di colori
+    int[] sequence;
 //    giocatore della partita
     Player player;
 //    istanza di controllo tentativi
@@ -41,7 +41,6 @@ public class MainGui extends JFrame {
 //        Inizializzazioni:
 
         sequence = new int[4];
-        hints = new int[2];
 //        Dichiarazioni interne:
 
 //        Barra menu
@@ -100,7 +99,6 @@ public class MainGui extends JFrame {
 //                impostazione visibilità popup per eventuale nuovo gioco
                 attemptsTablePanel.getAttemptTable().popup.setVisible(false);
                 attemptsTablePanel.updateUI();
-
             }
         });
 
@@ -118,17 +116,26 @@ public class MainGui extends JFrame {
 
 //                    Blocco pulsante se colori duplicati
 
-                    if (Stream.of(comboBoxes[1], comboBoxes[2], comboBoxes[3]).noneMatch(comboBox -> comboBoxes[0].getSelectedIndex() == comboBox.getSelectedIndex())
-                            && Stream.of(comboBoxes[0], comboBoxes[2], comboBoxes[3]).noneMatch(comboBox -> comboBoxes[1].getSelectedIndex() == comboBox.getSelectedIndex())
-                            && Stream.of(comboBoxes[0], comboBoxes[1], comboBoxes[3]).noneMatch(comboBox -> comboBoxes[2].getSelectedIndex() == comboBox.getSelectedIndex())
-                            && Stream.of(comboBoxes[0], comboBoxes[1], comboBoxes[2]).noneMatch(comboBox -> comboBoxes[3].getSelectedIndex() == comboBox.getSelectedIndex())) {
+                    if (Stream.of(comboBoxes[1], comboBoxes[2], comboBoxes[3]).
+                            noneMatch(comboBox -> comboBoxes[0].
+                                    getSelectedIndex() == comboBox.getSelectedIndex())
+                            && Stream.of(comboBoxes[0], comboBoxes[2], comboBoxes[3]).
+                            noneMatch(comboBox -> comboBoxes[1].
+                                    getSelectedIndex() == comboBox.getSelectedIndex())
+                            && Stream.of(comboBoxes[0], comboBoxes[1], comboBoxes[3]).
+                            noneMatch(comboBox -> comboBoxes[2].
+                                    getSelectedIndex() == comboBox.getSelectedIndex())
+                            && Stream.of(comboBoxes[0], comboBoxes[1], comboBoxes[2]).
+                            noneMatch(comboBox -> comboBoxes[3].
+                                    getSelectedIndex() == comboBox.getSelectedIndex())) {
 
 //                        Ciclo per salvataggio sequenza colori
 
                         for(int i = 0; i < sequence.length;i++) {
                             sequence[i] = comboBoxes[i].getSelectedIndex();
 //                            Visualizzazione colori nella tabella
-                            attemptTableModel.setCellColor(attemptN,i+1,Colors.values()[sequence[i]].getColoreRGB());
+                            attemptTableModel.setCellColor(attemptN,i+1,Colors.
+                                    values()[sequence[i]].getColoreRGB());
                         }
 //                        Salvataggio sequenza tentativo in informazioni giocatore
                         player.setSequence(attemptN, sequence);
@@ -148,24 +155,24 @@ public class MainGui extends JFrame {
                         } catch (InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }
-//                        salvataggio indizi in variabile locale
-                        System.arraycopy(codeEvaluation.getHints(), 0, hints, 0, 2);
 //                        Inserimento indizi in tabella
-                        attemptsTablePanel.getAttemptTable().getModel().setValueAt(hints[0], attemptN, 0);
-                        attemptsTablePanel.getAttemptTable().getModel().setValueAt(hints[1], attemptN, 5);
+                        attemptsTablePanel.getAttemptTable().getModel().
+                                setValueAt(codeEvaluation.getHints()[0], attemptN, 0);
+                        attemptsTablePanel.getAttemptTable().getModel()
+                                .setValueAt(codeEvaluation.getHints()[1], attemptN, 5);
 //                        Incremento tentativo odierno
                         attemptN += 1;
 
 //                        Azioni in caso di vittoria
 
-                        if (hints[1] == 4) {
+                        if (codeEvaluation.getHints()[1] == 4) {
 //                            visualizzazione popup vittoria
                             attemptsTablePanel.getAttemptTable().popup.setVictoryMessage(attemptN);
                         }
 
 //                        Azioni in caso di sconfitta
 
-                        if (attemptN == totAttempts && hints[1] != 4) {
+                        if (attemptN == totAttempts && codeEvaluation.getHints()[1] != 4) {
 //                            visualizzazione popup sconfitta con codice segreto
                             attemptsTablePanel.getAttemptTable().popup.setLooseMessage(secretCode);
                         }
@@ -184,8 +191,5 @@ public class MainGui extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 //        visibilità
         setVisible(true);
-
-
     }
-
 }
