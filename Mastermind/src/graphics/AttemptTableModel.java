@@ -40,48 +40,58 @@ public class AttemptTableModel extends AbstractTableModel {
 //    metodo sovrascritto per acquisizione numero totale colonne
     @Override
     public int getColumnCount() {
-        return 6;
+        return columnNames.length;
     }
 
 //    metodo sovrascritto per inserimento valore in cella specifica
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+//        verifica riga presente e valori nell'intervallo corretto
+        if((rowIndex >= 0) && (rowIndex < attempts) && ((int)aValue >= 0) && ((int)aValue < 5)) {
 //        verifica correttezza numero colonne per indizi
-        if(columnIndex == 5) {
+            if (columnIndex == 5) {
 //            salvataggio valore indizio "posizione corretta" nella matrice
-            hints[rowIndex][1] = (int) aValue;
+                hints[rowIndex][1] = (int) aValue;
 //            update tabella con nuovo valore
-            fireTableCellUpdated(rowIndex,columnIndex);
-        } else if (columnIndex == 0) {
+                fireTableCellUpdated(rowIndex, columnIndex);
+            } else if (columnIndex == 0) {
 //            salvataggio valore indizio "posizione errata" nella matrice
-            hints[rowIndex][columnIndex] = (int) aValue;
+                hints[rowIndex][columnIndex] = (int) aValue;
 //            update tabella con nuovo valore
-            fireTableCellUpdated(rowIndex,columnIndex);
+                fireTableCellUpdated(rowIndex, columnIndex);
+            }
         }
     }
 
 //    metodo per l'acquisizione di un valore indizio dalla matrice
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
+        if(rowIndex >= 0 && rowIndex < attempts) {
 //        verifica correttezza numero colonne per indizi
-        if(columnIndex == 5) {
+            if (columnIndex == 5) {
 //            ritorno valore "posizione corretta" da matrice
-            return hints[rowIndex][1];
-        } else if (columnIndex == 0) {
+                return hints[rowIndex][1];
+            } else if (columnIndex == 0) {
 //            ritorno valore "posizione errata" da matrice
-            return hints[rowIndex][columnIndex];
-        } else {
+                return hints[rowIndex][columnIndex];
+            } else {
 //            ritorno nullo per altre colonne
+                return "";
+            }
+        }
+        else {
             return "";
         }
     }
 
 //    metodo per inserimento nuovo colore in matrice colori
      public void setCellColor(int row, int column, Color color) {
+        if(row >= 0 && row < attempts && column > 0 && column < 5) {
 //         salvataggio nuovo colore in matrice colori
-        cellColors[row][column-1] = color;
+            cellColors[row][column - 1] = color;
 //        update tabella con nuovo colore
-        fireTableCellUpdated(row, column);
+            fireTableCellUpdated(row, column);
+        }
     }
 
 //    metodo per l'acquisizione colore salvato in matrice
@@ -95,5 +105,13 @@ public class AttemptTableModel extends AbstractTableModel {
 //            ritorno colore bianco in caso di errata colonna
             return Color.white;
         }
+    }
+
+    public Color[][] getCellColors() {
+        return cellColors;
+    }
+
+    public int[][] getHints() {
+        return hints;
     }
 }

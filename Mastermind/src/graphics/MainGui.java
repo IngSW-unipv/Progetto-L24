@@ -26,7 +26,7 @@ public class MainGui extends JFrame {
 //        inserimento titolo finestra
         super("Mastermind");
 //        definizione dimensioni
-        Dimension dimension = new Dimension(800, 450);
+        Dimension dimension = new Dimension(800, 470);
         setPreferredSize(dimension);
 //        definizione layout finestra
         setLayout(new BorderLayout());
@@ -129,7 +129,7 @@ public class MainGui extends JFrame {
                             noneMatch(comboBox -> comboBoxes[3].
                                     getSelectedIndex() == comboBox.getSelectedIndex())) {
 
-//                        Ciclo per salvataggio sequenza colori
+//                        Ciclo di salvataggio sequenza colori
 
                         for(int i = 0; i < sequence.length;i++) {
                             sequence[i] = comboBoxes[i].getSelectedIndex();
@@ -158,8 +158,8 @@ public class MainGui extends JFrame {
 //                        Inserimento indizi in tabella
                         attemptsTablePanel.getAttemptTable().getModel().
                                 setValueAt(codeEvaluation.getHints()[0], attemptN, 0);
-                        attemptsTablePanel.getAttemptTable().getModel()
-                                .setValueAt(codeEvaluation.getHints()[1], attemptN, 5);
+                        attemptsTablePanel.getAttemptTable().getModel().
+                                setValueAt(codeEvaluation.getHints()[1], attemptN, 5);
 //                        Incremento tentativo odierno
                         attemptN += 1;
 

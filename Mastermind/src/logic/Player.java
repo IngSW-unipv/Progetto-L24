@@ -29,6 +29,12 @@ public class Player {
 
     @SuppressWarnings("unused")
     public int[] getSequence(int tryN) {
+
         return sequences[tryN];
+    }
+
+    public int[][] getSequences() {
+
+        return sequences;
     }
 }
