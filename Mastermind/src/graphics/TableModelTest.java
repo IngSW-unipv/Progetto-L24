@@ -3,7 +3,6 @@ package graphics;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.table.TableModel;
 import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -36,8 +36,4 @@ public class EndGamePopup extends JPopupMenu {
         setVisible(true);
     }
 
-    public JMenuItem getMenuItem() {
-        return menuItem;
-    }
-
 }
