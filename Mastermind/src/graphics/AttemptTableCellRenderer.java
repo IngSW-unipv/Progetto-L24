@@ -4,9 +4,23 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 
+/**
+ * Componente dell'interfaccia a supporto della tabella di gioco per il render delle celle.
+ */
 public class AttemptTableCellRenderer extends DefaultTableCellRenderer {
 
-//    metodo sovrascritto per la definizione delle operazioni di render sulle celle
+    /**
+     * Operazioni di definizione del comportamento del renderer delle celle.
+     * @param table  the <code>JTable</code>
+     * @param value  the value to assign to the cell at
+     *                  <code>[row, column]</code>
+     * @param isSelected true if cell is selected
+     * @param hasFocus true if cell has focus
+     * @param row  the row of the cell to render
+     * @param column the column of the cell to render
+     * @return
+     * Componente della tabella di cui è stato eseguito il render.
+     */
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
 //        definizione e inizializzazione componente di base del renderer

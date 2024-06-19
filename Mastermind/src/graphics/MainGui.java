@@ -7,21 +7,39 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.stream.Stream;
 
+/**
+ * Interfaccia generale del gioco.
+ */
 public class MainGui extends JFrame {
 //    Definizioni:
 
-//    numero totale tentativi e tentativo corrente
+    /**
+     * Numero totale tentativi e tentativo corrente.
+     */
     int totAttempts = 0, attemptN = 0;
-//    sequenza di colori
+    /**
+     * Sequenza di colori del tentativo corrente.
+     */
     int[] sequence;
-//    giocatore della partita
+    /**
+     * Giocatore della partita.
+     */
     Player player;
-//    istanza di controllo tentativi
+    /**
+     * Sistema di valutazione delle sequenze inserite dal giocatore.
+     */
     CodeEvaluation codeEvaluation;
-//    modello di base della tabella di gioco
+    /**
+     * Modello specifico per la tabella di gioco.
+     */
     AttemptTableModel attemptTableModel;
 //    Costruttore:
 
+    /**
+     * Definizione delle proprietà grafiche dell'interfaccia delle operazioni di collegamento con i sotto-componenti.
+     * @param secretCode
+     * Codice segreto della partita che il giocatore deve individuare.
+     */
     public MainGui(int[] secretCode) {
 //        inserimento titolo finestra
         super("Mastermind");

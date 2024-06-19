@@ -2,28 +2,51 @@ package graphics;   //Definisce il package in cui si trova la classe OptionBar
 // importazioni utili alla corretta definizione aspetti grafici
 import javax.swing.*;
 
+/**
+ * Componente interattivo dell'interfaccia adibito alla scelta della difficoltà.
+ */
 public class OptionBar extends JMenuBar {
 
 //    Definizioni:
 
-//    primo menu principale
+    /**
+     * Primo menu della barra.
+     */
     JMenu firstMenu;
-//    serie di bottoni per la scelta della difficoltà
+    /**
+     * Bottone di scelta della difficoltà facile.
+     */
     JRadioButton difficultyEasy;
+    /**
+     * Bottone di scelta della difficoltà normale.
+     */
     JRadioButton difficultyNormal;
+    /**
+     * Bottone di scelta della difficoltà difficile.
+     */
     JRadioButton difficultyHard;
-//    bottone di conferma delle impostazioni scelte
+    /**
+     * Bottone di conferma della difficoltà.
+     */
     JMenuItem setButton;
-//    gruppo bottoni difficoltà
+    /**
+     * Gruppo dei bottoni di scelta della difficoltà.
+     */
     ButtonGroup difficultyGroup;
-//    etichetta descrittiva difficoltà
+    /**
+     * Etichetta di descrizione del menu.
+     */
     JLabel difficultyLabel;
-//    istanza di interfaccia utile al passaggio del numero
-//    di tentativi all'interfaccia grafica principale
+    /**
+     * Definizione dell'interfaccia di collegamento con il pannello di gioco.
+     */
     private AttemptsListener attemptsListener;
 
 //    Costruttore:
 
+    /**
+     * Definizione delle proprietà grafiche e dell'organizzazione dei sotto-componenti della barra dei menu.
+     */
     public OptionBar() {
 
 //        Inizializzazioni:
@@ -69,9 +92,12 @@ public class OptionBar extends JMenuBar {
         firstMenu.add(setButton);
     }
 
-//    metodo per la definizione dell'istanza di interfaccia
-
-public void setAttemptsListener(AttemptsListener attemptsListener) {
+    /**
+     * Definizione del controller di collegamento con l'interfaccia di gioco.
+     * @param attemptsListener
+     * Interfaccia di collegamento.
+     */
+    public void setAttemptsListener(AttemptsListener attemptsListener) {
 
         this.attemptsListener = attemptsListener;
 

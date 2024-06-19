@@ -3,6 +3,9 @@ package logic;  //Definisce il package in cui si trova la classe Game
 import graphics.MainGui;    //definisce l'importazione della classe MainGui dal package Graphics
 import graphics.Colors;     //definisce l'importazione di Enum Colors per l'acquisizione del numero di entità
 
+/**
+ * Sistema di gioco.
+ */
 public class Game extends Thread {
 
 //    Definizioni:
@@ -33,13 +36,17 @@ public class Game extends Thread {
 
     //    Costruttore:
 
+    /**
+     * Definizione caratteristiche del gioco.
+     */
     public Game() {
 //        inizializzazione array codice segreto
         secretCode = new int[4];
     }
 
-//    metodo per la generazione di codici segreti
-
+    /**
+     * Impostazione del codice segreto per la partita.
+     */
     void setSecretCode() {
 //        definizione numero totale di colori disponibili
         int colorDim = Colors.values().length;
@@ -60,9 +67,11 @@ public class Game extends Thread {
         }
     }
 
-//    metodo per il richiamo di codici segreti
-
-    @SuppressWarnings("unused")
+    /**
+     * Acquisizione del codice segreto.
+     * @return
+     * Sequenza che rappresenta il codice segreto.
+     */
     public int[] getSecretCode() {
         return secretCode;
     }

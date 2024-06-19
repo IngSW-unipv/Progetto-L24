@@ -1,17 +1,27 @@
 package graphics;   //Definisce il package in cui è contenuta la classe AttemptTable
+
 // importazioni utili alla corretta definizione aspetti grafici
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Componente tabellare dell'interfaccia di gioco.
+ */
 public class AttemptTable extends JTable {
 //    Dichiarazioni:
 
-//    popup di fine partita
+    /**
+     * Definizione popup di fine gioco.
+     */
     EndGamePopup popup;
 
 //    Costruttore:
 
-
+    /**
+     * Definisce le caratteristiche grafiche della tabella di gioco e del popup collegato.
+     * @param attemptTableModel
+     * Modello della tabella di gioco contenente le impostazioni della stessa.
+     */
     public AttemptTable(AttemptTableModel attemptTableModel) {
 //        Inizializzazioni:
 

@@ -5,15 +5,24 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testing del sistema di generazione del codice segreto.
+ */
 public class CodeGenerationTest {
 
     private Game game;
 
+    /**
+     * Operazioni in preparazione al test
+     */
     @BeforeEach
     public void setUp() {
         game = new Game();
     }
 
+    /**
+     * Operazioni di test sul codice segreto.
+     */
     @Test
     public void testSetSecretCode() {
         game.setSecretCode();

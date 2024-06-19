@@ -1,5 +1,9 @@
 package logic;  //definisce il package in cui è contenuta la classe CodeEvaluation
 
+/**
+ * Sistema di valutazione delle sequenze inserite dal giocatore rispetto al codice segreto per l'identificazione degli
+ * indizi sul tentativo corrente.
+ */
 public class CodeEvaluation extends Thread {
 
 //    Definizioni:
@@ -13,6 +17,9 @@ public class CodeEvaluation extends Thread {
 
 //    Costruttore:
 
+    /**
+     * Definizione caratteristiche del sistema.
+     */
     public CodeEvaluation() {
 //        Inizializzazioni:
 
@@ -22,22 +29,36 @@ public class CodeEvaluation extends Thread {
 
     }
 
-//    metodo setter per codice segreto
+    /**
+     * Impostazione del codice segreto.
+     * @param code
+     * Il codice segreto.
+     */
     public void setCode(int[] code) {
         this.code = code;
     }
 
-//    metodo setter per tentativo corrente
+    /**
+     * Impostazione della sequenza di indizi.
+     * @param guess
+     * La sequenza di indizi.
+     */
     public void setGuess(int[] guess) {
         this.guess = guess;
     }
 
-//    metodo getter per indizi correnti
+    /**
+     * Acquisizione della sequenza di indizi corrente.
+     * @return
+     * La sequenza di indizi corrente.
+     */
     public int[] getHints() {
         return hints;
     }
 
-//    metodo di esecuzione istruzioni nel Thread
+    /**
+     * Operazioni di confronto e valutazione delle sequenze di colori nel thread.
+     */
     @Override
     public synchronized void run() {
         hints[0] = 0;

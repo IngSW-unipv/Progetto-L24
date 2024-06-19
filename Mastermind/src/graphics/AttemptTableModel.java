@@ -3,12 +3,19 @@ package graphics;   //Definisce il package in cui è contenuta la classe Attempt
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 
+/**
+ * Componente dell'interfaccia collegato alla tabella di gioco che ne definisce la struttura e i comportamenti.
+ */
 public class AttemptTableModel extends AbstractTableModel {
 //    Definizioni:
 
-//    numero totale tentativi
+    /**
+     * Definizione numero totale di tentativi.
+     */
     int attempts;
-//    nomi colonne tabella
+    /**
+     * Definizione dei titoli relativi alle colonne della tabella di gioco.
+     */
     String[] columnNames = {"Pos. errata", "1°colore", "2°colore", "3°colore", "4°colore", "Pos. corretta"};
 //    matrice colori inseriti
     private static Color[][] cellColors;
@@ -17,6 +24,11 @@ public class AttemptTableModel extends AbstractTableModel {
 
 //    Costruttore:
 
+    /**
+     * Inizializza le informazioni necessarie alla tabella per funzionare correttamente.
+     * @param attempts
+     * Numero di tentativi totali disponibili al giocatore.
+     */
     public AttemptTableModel(int attempts) {
 //        Inizializzazioni:
 
@@ -84,7 +96,16 @@ public class AttemptTableModel extends AbstractTableModel {
         }
     }
 
-//    metodo per inserimento nuovo colore in matrice colori
+    /**
+     * Impostazione del colore specificato tra i parametri nella cella individuata
+     * dalle coordinate passate come parametri.
+     * @param row
+     * Numero della riga della cella da colorare.
+     * @param column
+     * Numero della colonna della cella da colorare.
+     * @param color
+     * Colore per la cella.
+     */
      public void setCellColor(int row, int column, Color color) {
         if(row >= 0 && row < attempts && column > 0 && column < 5) {
 //         salvataggio nuovo colore in matrice colori
@@ -94,7 +115,15 @@ public class AttemptTableModel extends AbstractTableModel {
         }
     }
 
-//    metodo per l'acquisizione colore salvato in matrice
+    /**
+     * Acquisizione del colore nella cella specificata dalle coordinate passate come parametri.
+     * @param row
+     * Numero di riga della cella da cui estrarre il colore.
+     * @param column
+     * Numero di colonna della cella da cui estrarre il colore.
+     * @return
+     * Colore presente nella cella individuata.
+     */
     public static Color getCellColor(int row, int column) {
 //        verifica correttezza colonne colori
         if(column != 0 && column != 5) {
@@ -107,10 +136,20 @@ public class AttemptTableModel extends AbstractTableModel {
         }
     }
 
+    /**
+     *Acquisizione della matrice dei colori della tabella di gioco.
+     * @return
+     * Matrice di colori.
+     */
     public Color[][] getCellColors() {
         return cellColors;
     }
 
+    /**
+     * Acquisizione della matrice degli indizi di gioco.
+     * @return
+     * Matrice degli indizi.
+     */
     public int[][] getHints() {
         return hints;
     }

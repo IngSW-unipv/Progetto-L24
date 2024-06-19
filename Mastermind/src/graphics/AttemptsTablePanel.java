@@ -5,18 +5,29 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
+/**
+ *  Pannello principale contenente la tabella di gioco.
+ */
 public class AttemptsTablePanel extends JPanel {
 
-//    Definizioni:
 
-//    tabella di gioco
+    /**
+     * Definizione tabella di gioco.
+     */
     private final AttemptTable attemptTable;
-//    modello della tabella di gioco
+
+    /**
+     * Definizione modello tabella di gioco.
+     */
     private final AttemptTableModel attemptTableModel;
 
 //    Costruttore:
 
-//    parametro attempts per definizione numero righe tabella
+    /**
+     * Definisce le impostazioni di visualizzazione dei contenuti nel pannello e le sue proprietà.
+     * @param attempts
+     * Numero totale di tentativi disponibili al giocatore. Rappresenta il numero di righe della tabella.
+     */
     public AttemptsTablePanel(int attempts) {
 
 //        definizione dimensioni pannello
@@ -46,11 +57,21 @@ public class AttemptsTablePanel extends JPanel {
         add(new JScrollPane(attemptTable), BorderLayout.CENTER);
 
     }
-//    metodo di acquisizione tabella
+
+    /**
+     * Acquisizione tabella dal pannello.
+     * @return
+     * Interfaccia principale di gioco costituita da una tabella.
+     */
     public AttemptTable getAttemptTable() {
         return attemptTable;
     }
-//    metodo di acquisizione modello tabella
+
+    /**
+     * Acquisizione modello della tabella con relative impostazioni.
+     * @return
+     * Pacchetto di impostazioni specifiche per la tabella di gioco.
+     */
     @SuppressWarnings("unused")
     public AttemptTableModel getAttemptTableModel() {
         return attemptTableModel;

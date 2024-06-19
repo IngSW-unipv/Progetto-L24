@@ -7,16 +7,25 @@ import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tester del modello adattato alla tabella di gioco.
+ */
 public class TableModelTest {
 
     private AttemptTableModel[] tableModel;
 
+    /**
+     * Operazioni in preparazione al test.
+     */
     @BeforeEach
     public void setUp() {
         tableModel = new AttemptTableModel[2];
         tableModel[0] = new AttemptTableModel(0);
     }
 
+    /**
+     * Operazioni di test del modello.
+     */
     @Test
     public void modelTest() {
 //        caso limite "attempts = 0"

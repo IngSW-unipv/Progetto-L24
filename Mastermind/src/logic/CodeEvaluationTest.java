@@ -5,17 +5,26 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testing del sistema di valutazione dei tentativi del giocatore.
+ */
 public class CodeEvaluationTest {
 
     private Game game;
     private CodeEvaluation codeEvaluation;
 
+    /**
+     * Operazioni in preparazione al test.
+     */
     @BeforeEach
     public void setUp() {
         game = new Game();
         codeEvaluation = new CodeEvaluation();
     }
 
+    /**
+     * Operazioni di test sul confronto tra sequenze di colori e definizione degli indizi.
+     */
     @Test
     public void testEvaluation() {
         int[] code, guess, hints;

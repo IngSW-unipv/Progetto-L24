@@ -5,10 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tester del giocatore della partita.
+ */
 public class PlayerTest {
 
      private Player[] player;
 
+    /**
+     * Operazioni in preparazione al test.
+     */
     @BeforeEach
     public void setUp() {
         player = new Player[4];
@@ -18,6 +24,9 @@ public class PlayerTest {
         player[3] = new Player(0);
     }
 
+    /**
+     * Operazioni di test del giocatore.
+     */
     @Test
     public void testPlayer() {
 
