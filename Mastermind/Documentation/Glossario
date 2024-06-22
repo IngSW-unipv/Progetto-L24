@@ -4,7 +4,8 @@ DECIFRATORE:
 	
 CODIFICATORE:
 
-	Entità che si occupa della gestione della partita, della scelta della combinazione da decifrare e dell'analisi delle informazioni provenienti dal giocatore.
+	Entità che si occupa della gestione della partita, della scelta della combinazione da decifrare e dell'analisi
+	delle informazioni provenienti dal giocatore.
 	
 MASTERMIND-GAME:
 
@@ -12,7 +13,8 @@ MASTERMIND-GAME:
 	
 SEQUENZA:
 
-	Insieme di valori definiti come il principale oggetto del gioco. Vengono rappresentati attraverso un insieme di quattro pioli colorati.
+	Insieme di valori definiti come il principale oggetto del gioco. Vengono rappresentati attraverso un insieme
+	di quattro pioli colorati.
 	
 PIOLO CODICE:
 
@@ -22,6 +24,7 @@ PIOLO CHIAVE:
 
 	Entità che svolge il ruolo di interfaccia tra il sistema ed il giocatore.
 	Contiene un informazione riguardante gli indizi forniti dal sistema al giocatore.
+	Può rappresentare due informazioni differenti tra loro in base al colore che li contraddistingue.
 	
 TENTATIVI:
 
@@ -29,4 +32,5 @@ TENTATIVI:
 	
 COLORE:
 
-	Informazione di base del gioco utilizzata come semplice interpretazione per il giocatore di codici alfanumerici o binari.
+	Informazione di base del gioco utilizzata come semplice interpretazione per il giocatore di codici alfanumerici
+	o binari.
