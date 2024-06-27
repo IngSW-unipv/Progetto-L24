@@ -8,7 +8,7 @@ public class Main {
     /**
      * Punto di Inizio del programma di gioco.
      * @param args
-     * Valori eventualmente passati al programma dalla console.
+     * Valori eventualmente passati al programma dalla console
      */
     public static void main(String[] args) {
 

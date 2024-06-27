@@ -1,0 +1,17 @@
+MASTERMIND PROJECT
+
+-   Il sistema deve permettere al giocatore di completare una partita al gioco mastermind.
+
+-   Il sistema deve permettere al giocatore di selezionare una difficoltà di gioco.
+
+-   Il sistema deve poter definire autonomamente il codice segreto.
+
+-   Il giocatore deve poter definire le proprie combinazioni di pioli codice.
+
+-   Il sistema deve essere in grado di confrontare sequenze valutando il loro livello di correttezza.
+
+-   Il sistema deve poter fornire al giocatore gli indizi necessari per metterlo nella condizione di ragionare
+    sulle mosse effettuate.
+
+-   Il sistema deve avvisare il giocatore in caso di vittoria o sconfitta proponendo, nel secondo caso, la sequenza
+    corretta.
