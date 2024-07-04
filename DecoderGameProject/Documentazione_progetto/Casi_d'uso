@@ -1,0 +1,33 @@
+CASO D'USO:   Giocare una partita
+SCOPO:  Completare le azioni descritte nel documento delle regole di gioco per svolgere una partita.
+ATTORI PRINCIPALI:  Codificatore, Decifratore, Sistema
+STAKEHOLDERS:
+
+    -   Codificatore: crea il codice segreto.
+
+    -   Decifratore: inventa sequenze da sottoporre al sistema per identificare il codice segreto.
+
+    -   Sistema: **definisce ed esegue i processi di valutazione dei codici inseriti dal decifratore.**
+
+PRECONDIZIONI:  Codificatore e decifratore devono conoscere il gioco e le sue regole
+
+CONDIZIONE DI SUCCESSO: Il decifratore individua, nei tentativi forniti, la sequenza corretta.
+
+SCENARIO DI SUCCESSO:
+
+    1   Il decifratore inizia la partita scegliendo la difficoltà con la quale vuole affrontare il gioco.
+
+    2   Il codificatore definisce la sequenza da decifrare e presenta al giocatore l'ambiente di gioco.
+
+    3   Il decifratore, attraverso l'interazione con l'ambiente di gioco, sceglie una sequenza da sottoporre al sistema.
+
+    4   Il sistema analizza la sequenza del decifratore e fornisce indizi sulle differenze con la sequenza
+        da decifrare.   (I passi 3 e 4 vengono ripetuti per il numero di tentativi definiti dalla difficoltà scelta)
+
+    5   Il sistema, verificando la correttezza della sequenza inserita, avvisa il decifratore della vittoria e
+        del numero di tentativi compiuti.
+
+ESTENSIONE (CASO ALTERNATIVO DI FALLIMENTO):
+
+    5   Il sistema, verificando il termine del numero di tentativi a disposizione, avvisa il giocatore della
+        sconfitta, fornendo la sequenza corretta.
