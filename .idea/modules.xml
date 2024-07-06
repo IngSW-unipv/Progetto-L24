@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Mastermind/Mastermind.iml" filepath="$PROJECT_DIR$/Mastermind/Mastermind.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DecoderGameProject/DecoderGameProject.iml" filepath="$PROJECT_DIR$/DecoderGameProject/DecoderGameProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Progetto-L24.iml" filepath="$PROJECT_DIR$/.idea/Progetto-L24.iml" />
     </modules>
   </component>
