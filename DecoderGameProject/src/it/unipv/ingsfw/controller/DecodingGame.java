@@ -46,7 +46,7 @@ public class DecodingGame {
         } else {
 
             gameFacade.createGame(decoderName, new AutoGenerationSecretCode(), viewFacade.getMainView());
-            viewFacade.updateMainView(gameFacade.getGame().getId(), decoderName, gameFacade.getDecoder().initializePoints());
+            viewFacade.updateMainView(gameFacade.getGame().getId(), decoderName, gameFacade.getDecoder().initializePoints() );
             gameFacade.startGame();
             viewFacade.hideDecoderNameDialog();
         }

@@ -15,7 +15,7 @@ SCENARIO DI SUCCESSO:
     4   Il codice viene salvato tra le informazioni della partita
     5   Terminazione dello scenario con l'interfaccia che presenta il nome del Decoder ed un punteggio azzerato e
         la presenza, seppur nascosta del nuovo codice segreto da decifrare
-CASI ALTERNATIVI:
+SCENARI ALTERNATIVI:
     1 Nominativo non valido:
         -   Viene segnalato all'utente l'invalidità del nominativo inserito
         -   Viene richiesto all'utente un nuovo nominativo
@@ -23,3 +23,27 @@ CASI ALTERNATIVI:
         -   Viene segnalato al sistema l'invalidità del codice generato
         -   Vengono eseguiti n nuovi tentativi di generazione
         -   In assenza di convalida del nuovo tentativo si segnala all'utente il problema proponendo una soluzione
+
+
+CASO D'USO: Esecuzione gioco
+SCOPO: Permettere al giocatore di scegliere la difficoltà di gioco e di completare tutti i tentativi
+        a propria disposizione.
+ATTORI PRINCIPALI: Decoder, Encoder
+STAKEHOLDERS:
+    -   Encoder: esegue i confronti tra le sequenze inserite ed il codice segreto definendo gli indizi
+    -   Decoder: sceglie la difficoltà ed inserisce ad ogni turno una sequenza che deve essere valutata
+PRECONDIZIONI: Tutte le operazioni di preparazione del gioco devono essere completate.
+SCENARIO DI SUCCESSO:
+    1   Il Decoder sceglie la difficoltà di gioco
+    2   Tramite la difficoltà scelta viene definito il numero di turni a disposizione del Decoder
+    3   Inizia il tentativo con l'inserimento da parte del Decoder di una sequenza
+    4   La sequenza viene salvata e valutata dal Encoder
+    5   Terminata la valutazione l'Encoder definisce gli indizi legati al tentativo e li fornisce al Decoder
+    6   I passi da 3 a 5 vengono ripetuti per tutti i tentativi a disposizione
+SCENARI ALTERNATIVI:
+    1 Definizione sequenze senza aver deciso una difficoltà:
+        -   Il Decoder tenta di inserire e confermare una sequenza senza prima aver selezionato una difficoltà di gioco
+        -   Viene segnalato al Decoder la necessità di scegliere una difficoltà tra quelle disponibili
+    2 Inserimento di una sequenza con valori ripetuti:
+        - Il Decoder tenta di confermare una sequenza con valori ripetuti
+        - Viene segnalato al Decoder che la sequenza inserita non è valida a causa di codici ripetuti (colori uguali)
