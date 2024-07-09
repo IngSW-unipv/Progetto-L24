@@ -5,14 +5,20 @@ public class GameFacade {
     private Encoder encoder;
     private Decoder decoder;
     private Game game;
+    private int attemptsLeft;
+    private String[] colorList;
 
     public GameFacade() {
+        colorList = new String[Colors.values().length];
+        for(int i = 0; i < Colors.values().length; i++) {
+            colorList[i] = Colors.values()[i].getColorName();
+        }
         System.out.println("Model is ready!");
     }
 
-    public void createGame(String decoderName, SecretCodeStrategy strategy, Observer observer) {
+    public void createGame(String decoderName, EncoderStrategy strategy, Observer observer) {
         encoder = new Encoder();
-        encoder.setSecretCodeStrategy(strategy);
+        encoder.setStrategy(strategy);
         encoder.addObserver(observer);
 
         decoder = new Decoder(decoderName);
@@ -20,31 +26,18 @@ public class GameFacade {
 
         game = new Game();
     }
-    /*
-    public void initializeDecoder(String name, Observer observer) {
-        decoder = new Decoder(name);
-        decoder.addObserver(observer);
-    }
 
-    public void initializeEncoder(String name, Observer observer) {
-        encoder = new Encoder(name);
-        encoder.addObserver(observer);
-    }
-
-    public void initializeEncoder(Observer observer) {
-        encoder = new Encoder();
-        encoder.addObserver(observer);
-    }
-
-    public void initializeGame(Encoder encoder, Decoder decoder) {
-        game = new Game(encoder,decoder);
-    }
-    */
     public void startGame() {
         encoder.generateSecretCode();
         game.start();
         System.out.println(game.getState());
         System.out.println(encoder.getSecretCode());
+    }
+
+    public int setDifficulty(String difficultyName) {
+        game.defineTotalAttempts(difficultyName);
+        game.initializeHints(game.getTotAttempts());
+        return game.getTotAttempts();
     }
 
     public void endGame() {
@@ -61,5 +54,17 @@ public class GameFacade {
 
     public Game getGame() {
         return game;
+    }
+
+    public String[] getColorList() {
+        return colorList;
+    }
+
+    public boolean hasAttemptsLeft() {
+        return attemptsLeft > 0;
+    }
+
+    public void evaluateSequence() {
+
     }
 }

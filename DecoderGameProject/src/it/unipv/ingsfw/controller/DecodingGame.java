@@ -1,9 +1,8 @@
 package it.unipv.ingsfw.controller;
 
-import it.unipv.ingsfw.model.AutoGenerationSecretCode;
+import it.unipv.ingsfw.model.AutoEncoder;
 import it.unipv.ingsfw.model.GameFacade;
 import it.unipv.ingsfw.view.ViewFacade;
-import it.unipv.ingsfw.model.SecretCodeStrategy;
 
 
 import javax.swing.*;
@@ -20,6 +19,7 @@ public class DecodingGame {
         this.gameFacade = gameFacade;
         this.viewFacade = viewFacade;
 
+
         viewFacade.createView();
         viewFacade.createNameDialog();
         setupViewListeners();
@@ -32,9 +32,17 @@ public class DecodingGame {
                 handleDecoderNameInput();
             }
         });
+
+        viewFacade.addDifficultySetButtonListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
     public void initializeGame() {
+        viewFacade.getMainView().getColorList(gameFacade.getColorList());
         viewFacade.showMainView();
         viewFacade.showDecoderNameDialog();
     }
@@ -45,10 +53,19 @@ public class DecodingGame {
             JOptionPane.showMessageDialog(null, "Error: Decoder name not valid!");
         } else {
 
-            gameFacade.createGame(decoderName, new AutoGenerationSecretCode(), viewFacade.getMainView());
+            gameFacade.createGame(decoderName, new AutoEncoder(), viewFacade.getMainView());
             viewFacade.updateMainView(gameFacade.getGame().getId(), decoderName, gameFacade.getDecoder().initializePoints() );
             gameFacade.startGame();
             viewFacade.hideDecoderNameDialog();
+        }
+    }
+
+    private void handleDifficultyChoseInput() {
+        String difficulty = viewFacade.getDifficultyChosen();
+        if (gameFacade.getDecoder().getName().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Error: Decoder name not defined!");
+        } else {
+            viewFacade.setTable(gameFacade.setDifficulty(difficulty));
         }
     }
 }

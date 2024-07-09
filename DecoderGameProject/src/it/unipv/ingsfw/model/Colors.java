@@ -42,4 +42,5 @@ public enum Colors {
     public Color getRgbColor() {
         return rgbColor;
     }
+
 }

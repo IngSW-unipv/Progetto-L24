@@ -1,7 +1,6 @@
 package it.unipv.ingsfw;
 
 import it.unipv.ingsfw.controller.DecodingGame;
-import it.unipv.ingsfw.model.AutoGenerationSecretCode;
 import it.unipv.ingsfw.model.GameFacade;
 import it.unipv.ingsfw.view.ViewFacade;
 
