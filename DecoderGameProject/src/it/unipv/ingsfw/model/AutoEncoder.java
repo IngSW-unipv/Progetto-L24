@@ -1,7 +1,5 @@
 package it.unipv.ingsfw.model;
 
-import graphics.Colors;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;

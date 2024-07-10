@@ -37,4 +37,8 @@ public class AttemptsTable extends JTable {
 //        creazione nuovo font per testo visualizzato
         setFont(new Font("Inconsolata", Font.BOLD, 16));
     }
+
+    public AttemptsTableModel getModel() {
+        return (AttemptsTableModel) super.getModel();
+    }
 }

@@ -34,4 +34,16 @@ public class Encoder extends Player {
         return strategy.getSecretCode();
     }
 
+    public ArrayList<String> secretCodeToString() {
+        ArrayList<String> colorList = new ArrayList<>();
+        for(Color color: getSecretCode()) {
+            for(int i = 0; i < Colors.values().length; i++) {
+                if(color.equals(Colors.values()[i].getRgbColor())) {
+                    colorList.add(Colors.values()[i].getColorName());
+                }
+            }
+        }
+        return colorList;
+    }
+
 }

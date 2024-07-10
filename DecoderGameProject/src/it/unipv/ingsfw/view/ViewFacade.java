@@ -8,8 +8,6 @@ public class ViewFacade {
     private DecoderNameDialog decoderNameDialog;
 
     public ViewFacade() {
-//        this.mainview = new MainView();
-//        this.decoderNameDialog = new DecoderNameDialog(this.mainview);
         System.out.println("View is ready!");
     }
 
@@ -20,10 +18,6 @@ public class ViewFacade {
     public void showMainView() {
 
         mainview.setVisible(true);
-    }
-
-    public void hideMainView() {
-        mainview.setVisible(false);
     }
 
     public void createNameDialog() {
@@ -47,8 +41,8 @@ public class ViewFacade {
         return mainview.getOptionBar().getDifficulty();
     }
 
-    public void setTable(int Attempts) {
-
+    public void applyDifficulty(int attempts) {
+        mainview.setupAttemptsTable(attempts);
     }
 
     public void addConfirmNameButtonListener(ActionListener listener) {
@@ -56,10 +50,14 @@ public class ViewFacade {
     }
 
     public void addDifficultySetButtonListener(ActionListener listener) {
-        mainview.getOptionBar().addSetButtonListener(listener);
+        mainview.getOptionBar().addDifficultyButtonListener(listener);
     }
 
-    public void updateMainView(int gameID, String decoderName, int decoderPoints) {
+    public void addCheckSequenceButtonListener(ActionListener listener) {
+        mainview.getCheckButton().addActionListener(listener);
+    }
+
+    public void showGameInfo(int gameID, String decoderName, int decoderPoints) {
         mainview.addTextInfo(gameID,decoderName,decoderPoints);
     }
 

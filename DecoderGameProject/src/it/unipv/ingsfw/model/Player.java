@@ -35,8 +35,4 @@ public abstract class Player extends Observable {
         return points;
     }
 
-    public int initializePoints() {
-        this.points = 0;
-        return points;
-    }
 }

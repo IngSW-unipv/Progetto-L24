@@ -13,7 +13,7 @@ public class Game {
 
     public Game() {
         sequences = new ArrayList<>();
-        sequences.clear();
+        this.totAttempts = 0;
         this.state = "Not started";
     }
 
@@ -71,5 +71,9 @@ public class Game {
 
     public void addHint(int[] hint) {
         hints[currentAttempt] = hint;
+    }
+
+    public int[] getLastHint() {
+        return this.hints[this.currentAttempt];
     }
 }

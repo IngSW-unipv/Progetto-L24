@@ -75,9 +75,10 @@ public class OptionBar extends JMenuBar {
         difficultyGroup.add(difficultyHard);
         firstMenu.add(difficultyHard);
         firstMenu.addSeparator();
+        firstMenu.add(setButton);
     }
 
-    public void addSetButtonListener(ActionListener listener) {
+    public void addDifficultyButtonListener(ActionListener listener) {
         setButton.addActionListener(listener);
     }
 

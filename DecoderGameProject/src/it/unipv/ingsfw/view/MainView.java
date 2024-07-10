@@ -1,14 +1,15 @@
 package it.unipv.ingsfw.view;
 
-import it.unipv.ingsfw.model.Colors;
 import it.unipv.ingsfw.model.Observer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.stream.Stream;
 
 public class MainView extends JFrame implements Observer {
 
     private JPanel centerPanel;
+    private JPanel choisePanel;
     private JLabel infoLabel;
     private OptionBar optionBar;
     private AttemptsTable attemptsTable;
@@ -25,6 +26,7 @@ public class MainView extends JFrame implements Observer {
         setSize(800, 470);
 
         centerPanel = new JPanel();
+        choisePanel = new JPanel(new FlowLayout());
         setLayout(new BorderLayout());
         centerPanel.setLayout(new BorderLayout());
         infoLabel = new JLabel(predefinedText, SwingConstants.CENTER);
@@ -42,7 +44,7 @@ public class MainView extends JFrame implements Observer {
         checkButton = new CheckButton();
         centerPanel.add(infoLabel, BorderLayout.PAGE_START);
         centerPanel.add(new JScrollPane(attemptsTable), BorderLayout.CENTER);
-        centerPanel.add(new JPanel(new FlowLayout()), BorderLayout.PAGE_END);
+        centerPanel.add(choisePanel, BorderLayout.PAGE_END);
         add(optionBar, BorderLayout.PAGE_START);
         add(centerPanel, BorderLayout.CENTER);
         add(checkButton, BorderLayout.PAGE_END);
@@ -65,10 +67,46 @@ public class MainView extends JFrame implements Observer {
         return this.optionBar;
     }
 
+    public AttemptsTable getAttemptsTable() {
+        return this.attemptsTable;
+    }
+
+    public CheckButton getCheckButton() {
+        return this.checkButton;
+    }
+
+    public ComboBox[] getComboBoxes() {
+        return this.comboBoxes;
+    }
+
+    public void setupAttemptsTable(int attempts) {
+        this.getAttemptsTable().setModel(new AttemptsTableModel(attempts));
+        this.getAttemptsTable().getTableHeader().getColumnModel().
+                getColumn(0).setHeaderRenderer(new graphics.wrongPosHeaderRenderer());
+        this.getAttemptsTable().getTableHeader().getColumnModel().
+                getColumn(5).setHeaderRenderer(new rightPosHeaderRenderer());
+    }
+
+    public Boolean checkDuplicateInSequence() {
+        return Stream.of(getComboBoxes()[1], getComboBoxes()[2], getComboBoxes()[3]).
+                noneMatch(comboBox -> getComboBoxes()[0].
+                        getSelectedIndex() == comboBox.getSelectedIndex())
+                && Stream.of(getComboBoxes()[0], getComboBoxes()[2], getComboBoxes()[3]).
+                noneMatch(comboBox -> getComboBoxes()[1].
+                        getSelectedIndex() == comboBox.getSelectedIndex())
+                && Stream.of(getComboBoxes()[0], getComboBoxes()[1], getComboBoxes()[3]).
+                noneMatch(comboBox -> getComboBoxes()[2].
+                        getSelectedIndex() == comboBox.getSelectedIndex())
+                && Stream.of(getComboBoxes()[0], getComboBoxes()[1], getComboBoxes()[2]).
+                noneMatch(comboBox -> getComboBoxes()[3].
+                        getSelectedIndex() == comboBox.getSelectedIndex());
+    }
+
     public void getColorList(String[] list) {
         this.colorList = list;
         for(int i = 0; i < comboBoxes.length; i++) {
             this.comboBoxes[i] = new ComboBox(list);
+            this.choisePanel.add(comboBoxes[i]);
         }
     }
 
