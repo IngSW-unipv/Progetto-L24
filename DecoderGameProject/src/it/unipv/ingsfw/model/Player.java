@@ -19,7 +19,6 @@ public abstract class Player extends Observable {
 
     public void setName(String name) {
         this.name = name;
-        notifyObservers();
     }
 
     public String getName() {
@@ -28,7 +27,6 @@ public abstract class Player extends Observable {
 
     public void setPoints(int points) {
         this.points = points;
-        notifyObservers();
     }
 
     public int getPoints() {

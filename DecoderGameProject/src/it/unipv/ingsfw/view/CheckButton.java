@@ -2,7 +2,6 @@ package it.unipv.ingsfw.view;   //Definisce il package in cui si trova la classe
 // importazioni utili alla corretta definizione aspetti grafici
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 /**
  * Componente interattivo dell'interfaccia di gioco per la conferma del tentativo corrente.
@@ -19,9 +18,5 @@ public class CheckButton extends JButton{
 //         definizione font del bottone
          setFont(new Font("Inconsolata", Font.ITALIC, 25));
 
-     }
-
-     public void checkButtonListener(ActionListener listener) {
-         this.addActionListener(listener);
      }
 }

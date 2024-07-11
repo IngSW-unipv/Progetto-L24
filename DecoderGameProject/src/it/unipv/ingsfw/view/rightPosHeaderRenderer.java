@@ -35,8 +35,8 @@ public class rightPosHeaderRenderer extends JLabel implements TableCellRenderer 
      *                          and draw the value.  For example, if
      *                          <code>value</code>
      *                          is the string "true", it could be rendered as a
-     *                          string or it could be rendered as a check
-     *                          box that is checked.  <code>null</code> is a
+     *                          string, or it could be rendered as a checkbox
+     *                          that is checked.  <code>null</code> is a
      *                          valid value
      * @param isSelected      true if the cell is to be rendered with the
      *                          selection highlighted; otherwise false

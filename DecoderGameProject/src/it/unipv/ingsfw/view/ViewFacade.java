@@ -1,8 +1,10 @@
 package it.unipv.ingsfw.view;
 
+import it.unipv.ingsfw.model.Observer;
+
 import java.awt.event.ActionListener;
 
-public class ViewFacade {
+public class ViewFacade implements Observer {
 
     private MainView mainview;
     private DecoderNameDialog decoderNameDialog;
@@ -65,4 +67,10 @@ public class ViewFacade {
         return mainview;
     }
 
+    @Override
+    public void update(int[] newHint, int currentAttempt) {
+        mainview.getAttemptsTable().getModel().setValueAt(newHint[0], currentAttempt, 0);
+        mainview.getAttemptsTable().getModel().setValueAt(newHint[1], currentAttempt, 5);
+        mainview.repaint();
+    }
 }

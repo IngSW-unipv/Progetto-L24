@@ -12,7 +12,6 @@ public class DecodingGameApp {
         ViewFacade viewFacade = new ViewFacade();
 
         DecodingGame decodingGame = new DecodingGame(gameFacade, viewFacade);
-//        decodingGame.initializeGame();
         decodingGame.setupGame();
     }
 }

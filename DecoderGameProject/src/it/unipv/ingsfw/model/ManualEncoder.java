@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class ManualEncoder implements EncoderStrategy {
 
-    private ArrayList<Color> secretCode;
+    private final ArrayList<Color> secretCode;
 
     public ManualEncoder(ArrayList<Color> secretCode) {
         this.secretCode = secretCode;

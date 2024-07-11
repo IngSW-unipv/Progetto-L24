@@ -1,15 +1,11 @@
 package it.unipv.ingsfw.controller;
 
-import it.unipv.ingsfw.model.GameFacade;
 import it.unipv.ingsfw.view.ViewFacade;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class DifficultySelectionController {
 
-    private ViewFacade viewFacade;
-    private GameController gameController;
+    private final ViewFacade viewFacade;
+    private final GameController gameController;
 
     public DifficultySelectionController(ViewFacade viewFacade, GameController gameController) {
         this.viewFacade = viewFacade;
@@ -17,12 +13,7 @@ public class DifficultySelectionController {
     }
 
     public void difficultySelectionListener() {
-        viewFacade.addDifficultySetButtonListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handleDifficultyChooseInput();
-            }
-        });
+        viewFacade.addDifficultySetButtonListener(e -> handleDifficultyChooseInput());
     }
 
     private void handleDifficultyChooseInput() {

@@ -2,6 +2,6 @@ package it.unipv.ingsfw.model;
 
 public interface Observer {
 
-    void update();
+    void update(int[] newHint, int currentAttempt);
 
 }

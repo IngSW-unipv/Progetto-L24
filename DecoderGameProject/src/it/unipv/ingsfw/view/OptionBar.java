@@ -1,6 +1,5 @@
 package it.unipv.ingsfw.view;   //Definisce il package in cui si trova la classe OptionBar
 // importazioni utili alla corretta definizione aspetti grafici
-import graphics.AttemptsListener;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;

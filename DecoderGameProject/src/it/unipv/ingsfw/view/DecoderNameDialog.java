@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 
 public class DecoderNameDialog extends JDialog {
 
-    private JTextField nameField;
-    private JButton confirmButton;
+    private final JTextField nameField;
+    private final JButton confirmButton;
 
     public DecoderNameDialog(JFrame parent) {
         super(parent, "Insert your name", true);

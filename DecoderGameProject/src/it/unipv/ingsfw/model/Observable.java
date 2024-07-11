@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Observable {
 
-    private List<Observer> observers = new ArrayList<>();
+    private List<Observer> observers;
 
     public Observable() {
         this.observers = new ArrayList<>();
@@ -19,9 +19,9 @@ public class Observable {
         observers.remove(observer);
     }
 
-    public void notifyObservers() {
+    public void notifyObservers(int[] newHint, int currentAttempt) {
         for(Observer observer: observers) {
-            observer.update();
+            observer.update(newHint, currentAttempt);
         }
     }
 

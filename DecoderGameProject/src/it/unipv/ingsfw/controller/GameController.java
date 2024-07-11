@@ -5,7 +5,7 @@ import it.unipv.ingsfw.model.GameFacade;
 
 public class GameController {
 
-    private GameFacade gameFacade;
+    private final GameFacade gameFacade;
 
     public GameController(GameFacade gameFacade) {
         this.gameFacade = gameFacade;

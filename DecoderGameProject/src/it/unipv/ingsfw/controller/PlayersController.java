@@ -6,20 +6,22 @@ import java.util.ArrayList;
 
 public class PlayersController {
 
-    private GameFacade gameFacade;
+    private final GameFacade gameFacade;
+    private final Observer observer;
 
-    public PlayersController(GameFacade gameFacade) {
+    public PlayersController(GameFacade gameFacade, Observer observer) {
         this.gameFacade = gameFacade;
+        this.observer = observer;
     }
 
-    public void createPlayers(String decoderName, String encoderName, EncoderStrategy strategy, Observer observer) {
-        this.gameFacade.createNewDecoder(decoderName, observer);
-        this.gameFacade.createNewEncoder(encoderName, strategy, observer);
+    public void createPlayers(String decoderName, String encoderName, EncoderStrategy strategy) {
+        this.gameFacade.createNewEncoder(encoderName, strategy, this.observer);
+        this.gameFacade.createNewDecoder(decoderName, this.observer);
     }
 
-    public void createPlayers(String decoderName, EncoderStrategy strategy, Observer observer) {
-        this.gameFacade.createNewDecoder(decoderName, observer);
-        this.gameFacade.createNewEncoder("CPU", strategy, observer);
+    public void createPlayers(String decoderName, EncoderStrategy strategy) {
+        this.gameFacade.createNewEncoder("CPU", strategy, this.observer);
+        this.gameFacade.createNewDecoder(decoderName, this.observer);
     }
 
     public Encoder getEncoder() {
@@ -33,5 +35,4 @@ public class PlayersController {
     public ArrayList<String> getSecretCodeNames() {
         return gameFacade.convertSecretCodeToString();
     }
-
 }

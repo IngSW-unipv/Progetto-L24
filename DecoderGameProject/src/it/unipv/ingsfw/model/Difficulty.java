@@ -8,7 +8,7 @@ public enum Difficulty {
 
     HARD(5);
 
-    private int attempts;
+    private final int attempts;
 
     Difficulty(int attempts) {
         this.attempts = attempts;

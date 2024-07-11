@@ -4,14 +4,12 @@ import it.unipv.ingsfw.model.AutoEncoder;
 import it.unipv.ingsfw.view.ViewFacade;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class NameInsertController {
 
-    private ViewFacade viewFacade;
-    private PlayersController playersController;
-    private GameController gameController;
+    private final ViewFacade viewFacade;
+    private final PlayersController playersController;
+    private final GameController gameController;
 
     public NameInsertController(ViewFacade viewFacade, PlayersController playersController,
                                 GameController gameController) {
@@ -21,12 +19,7 @@ public class NameInsertController {
     }
 
     public void nameInsertListener() {
-        viewFacade.addConfirmNameButtonListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handleDecoderNameInput();
-            }
-        });
+        viewFacade.addConfirmNameButtonListener(e -> handleDecoderNameInput());
     }
 
     private void handleDecoderNameInput() {
@@ -34,9 +27,7 @@ public class NameInsertController {
         if (decoderName.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Error: Decoder name not valid!");
         } else {
-
-//            gameFacade.createGame(decoderName, new AutoEncoder(), viewFacade.getMainView());
-            playersController.createPlayers(decoderName, new AutoEncoder(), viewFacade.getMainView());
+            playersController.createPlayers(decoderName, new AutoEncoder());
             gameController.createGame(1);
 
             viewFacade.showGameInfo(gameController.getGame().getId(), decoderName,

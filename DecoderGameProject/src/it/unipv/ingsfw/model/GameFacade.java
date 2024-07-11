@@ -10,8 +10,10 @@ public class GameFacade {
     private Game game;
     private int attemptsLeft;
     private final String[] colorList;
+    private final GameEntitiesFactory factory;
 
     public GameFacade() {
+        this.factory = new ConcreteGameEntitiesFactory();
         colorList = new String[Colors.values().length];
         for(int i = 0; i < Colors.values().length; i++) {
             colorList[i] = Colors.values()[i].getColorName();
@@ -19,42 +21,19 @@ public class GameFacade {
         System.out.println("Model is ready!");
     }
 
-    /*public void createGame(String decoderName, String encoderName,
-                           EncoderStrategy strategy, Observer observer) {
-        encoder = new Encoder(encoderName);
-        encoder.setStrategy(strategy);
-        encoder.addObserver(observer);
-
-        decoder = new Decoder(decoderName);
-        decoder.addObserver(observer);
-
-        game = new Game();
-    }
-
-    public void createGame(String decoderName, EncoderStrategy strategy, Observer observer) {
-        encoder = new Encoder();
-        encoder.setStrategy(strategy);
-        encoder.addObserver(observer);
-
-        decoder = new Decoder(decoderName);
-        decoder.addObserver(observer);
-
-        game = new Game();
-    }*/
-
     public void createNewEncoder(String encoderName, EncoderStrategy strategy, Observer observer) {
-        this.encoder = new Encoder(encoderName);
+        this.encoder = factory.createEncoder(encoderName);
         this.encoder.setStrategy(strategy);
         this.encoder.addObserver(observer);
     }
 
     public void createNewDecoder(String decoderName, Observer observer) {
-        this.decoder = new Decoder(decoderName);
+        this.decoder = factory.createDecoder(decoderName);
         this.decoder.addObserver(observer);
     }
 
     public void createNewGame(int id) {
-        this.game = new Game();
+        this.game = factory.createGame();
         game.setId(id);
     }
 
@@ -65,24 +44,6 @@ public class GameFacade {
     public void setEncoder(Encoder encoder) {
         this.encoder = encoder;
     }
-
-    /*public void startGame() {
-        encoder.generateSecretCode();
-        game.start();
-        System.out.println(game.getState());
-        System.out.println(encoder.secretCodeToString().toString());
-    }*/
-
-    /*public int setDifficulty(String difficultyName) {
-        game.defineTotalAttempts(difficultyName);
-        initializeAttemptsLeft();
-        game.initializeHints(game.getTotAttempts());
-        return game.getTotAttempts();
-    }*/
-
-    /*public void endGame() {
-        game.end();
-    }*/
 
     public Encoder getEncoder() {
         return encoder;
@@ -112,10 +73,11 @@ public class GameFacade {
         return attemptsLeft > 0;
     }
 
-    public int[] playTurn(ArrayList<Color> sequence) {
+    public void playTurn(ArrayList<Color> sequence) {
         this.game.addSequence(sequence);
-        this.game.addHint(this.encoder.evaluateSequence(sequence));
-        return this.game.getLastHint();
+        int[] hint = this.encoder.evaluateSequence(sequence);
+        this.game.addHint(hint);
+        this.encoder.notifyObservers(hint, this.game.getCurrentAttempt());
     }
 
     public void endTurn() {
