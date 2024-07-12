@@ -1,16 +1,24 @@
 package it.unipv.ingsfw.view;
 
-import it.unipv.ingsfw.model.Observer;
+import it.unipv.ingsfw.Observer;
 
 import java.awt.event.ActionListener;
 
 public class ViewFacade implements Observer {
 
+    private static ViewFacade instance;
     private MainView mainview;
     private DecoderNameDialog decoderNameDialog;
 
-    public ViewFacade() {
+    private ViewFacade() {
         System.out.println("View is ready!");
+    }
+
+    public static ViewFacade getInstance() {
+        if(instance == null) {
+            instance = new ViewFacade();
+        }
+        return instance;
     }
 
     public void createView() {

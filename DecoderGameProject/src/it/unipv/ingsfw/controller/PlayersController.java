@@ -1,5 +1,6 @@
 package it.unipv.ingsfw.controller;
 
+import it.unipv.ingsfw.Observer;
 import it.unipv.ingsfw.model.*;
 
 import java.util.ArrayList;

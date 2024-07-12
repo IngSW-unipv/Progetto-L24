@@ -1,10 +1,13 @@
 package it.unipv.ingsfw.model;
 
+import it.unipv.ingsfw.Observer;
+
 import java.awt.*;
 import java.util.ArrayList;
 
 public class GameFacade {
 
+    private static GameFacade instance;
     private Encoder encoder;
     private Decoder decoder;
     private Game game;
@@ -12,13 +15,20 @@ public class GameFacade {
     private final String[] colorList;
     private final GameEntitiesFactory factory;
 
-    public GameFacade() {
+    private GameFacade() {
         this.factory = new ConcreteGameEntitiesFactory();
         colorList = new String[Colors.values().length];
         for(int i = 0; i < Colors.values().length; i++) {
             colorList[i] = Colors.values()[i].getColorName();
         }
         System.out.println("Model is ready!");
+    }
+
+    public static GameFacade getInstance() {
+        if(instance  == null) {
+            instance = new GameFacade();
+        }
+        return instance;
     }
 
     public void createNewEncoder(String encoderName, EncoderStrategy strategy, Observer observer) {

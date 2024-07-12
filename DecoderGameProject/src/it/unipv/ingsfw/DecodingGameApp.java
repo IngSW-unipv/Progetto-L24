@@ -8,8 +8,8 @@ public class DecodingGameApp {
 
     public static void main(String[] args) {
 
-        GameFacade gameFacade = new GameFacade();
-        ViewFacade viewFacade = new ViewFacade();
+        GameFacade gameFacade = GameFacade.getInstance();
+        ViewFacade viewFacade = ViewFacade.getInstance();
 
         DecodingGame decodingGame = new DecodingGame(gameFacade, viewFacade);
         decodingGame.setupGame();

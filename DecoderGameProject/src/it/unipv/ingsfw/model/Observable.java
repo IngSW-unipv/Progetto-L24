@@ -1,5 +1,7 @@
 package it.unipv.ingsfw.model;
 
+import it.unipv.ingsfw.Observer;
+
 import java.util.ArrayList;
 import java.util.List;
 

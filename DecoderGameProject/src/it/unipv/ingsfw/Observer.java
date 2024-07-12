@@ -1,4 +1,4 @@
-package it.unipv.ingsfw.model;
+package it.unipv.ingsfw;
 
 public interface Observer {
 
