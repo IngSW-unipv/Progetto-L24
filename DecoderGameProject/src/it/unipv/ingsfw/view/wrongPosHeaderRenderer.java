@@ -1,18 +1,21 @@
-package it.unipv.ingsfw.view;   //definisce il package in cui si trova la classe wrongPosHeaderRenderer
-// importazioni utili alla corretta definizione aspetti grafici
+package it.unipv.ingsfw.view;
+
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
 /**
- * Componente dell'interfaccia collegato alla tabella di gioco adibito al render dell' header sinistro.
+ * Classe che rappresenta il renderer specifico di una colonna della tabella di gioco.
+ * Estende JLabel per gestire le proprietà del testo nel header.
+ * Implementa TableCellRenderer per gestire l'acquisizione del componente da renderizzare.
  */
+
 public class wrongPosHeaderRenderer extends JLabel implements TableCellRenderer {
-//    Costruttore:
 
     /**
-     * Definizione delle proprietà grafiche del renderer.
+     * Costruttore che definisce le proprietà grafiche del renderer.
      */
+
     public wrongPosHeaderRenderer() {
 
 //        definizione e applicazione nuovo font
@@ -30,7 +33,7 @@ public class wrongPosHeaderRenderer extends JLabel implements TableCellRenderer 
     }
 
     /**
-     * Acquisizione del componente di cui è stato eseguito il render.
+     * Metodo per l'acquisizione del componente di cui è stato eseguito il render.
      * @param table           the <code>JTable</code> that is asking the
      *                          renderer to draw; can be <code>null</code>
      * @param value           the value of the cell to be rendered.  It is
@@ -52,8 +55,7 @@ public class wrongPosHeaderRenderer extends JLabel implements TableCellRenderer 
      *                          <code>row</code> is -1
      * @param column          the column index of the cell being drawn
      *
-     * @return
-     * Il componente renderizzato.
+     * @return Il componente renderizzato.
      */
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {

@@ -1,16 +1,16 @@
-package it.unipv.ingsfw.view;   //Definisce il package in cui si trova la classe CheckButton
-// importazioni utili alla corretta definizione aspetti grafici
+package it.unipv.ingsfw.view;
+
 import javax.swing.*;
 import java.awt.*;
 
 /**
- * Componente interattivo dell'interfaccia di gioco per la conferma del tentativo corrente.
+ * Classe che rappresenta il bottone da premere per eseguire la valutazione di una sequenza.
+ * Estende la classe JButton per gestire le componenti grafiche del bottone e il comportamento.
  */
 public class CheckButton extends JButton{
-//    Costruttore:
 
     /**
-     * Definizione caratteristiche grafiche del bottone.
+     * Costruttore che definisce le caratteristiche grafiche del bottone.
      */
      public CheckButton() {
 //         definizione scritta bottone

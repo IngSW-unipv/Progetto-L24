@@ -1,12 +1,12 @@
-package it.unipv.ingsfw.view;   //Definisce il package in cui è contenuta la classe AttemptTableCellRenderer
-// importazioni utili alla corretta definizione aspetti grafici
+package it.unipv.ingsfw.view;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 
 /**
- * Componente dell'interfaccia a supporto della tabella di gioco per il render delle celle.
+ * Classe che rappresenta il render delle celle per la tabella di gioco.
+ * Estende la classe DefaultTableCellRenderer per l'esecuzione delle operazioni di render delle celle.
  */
 public class AttemptsTableCellRenderer extends DefaultTableCellRenderer {
 
@@ -19,8 +19,7 @@ public class AttemptsTableCellRenderer extends DefaultTableCellRenderer {
      * @param hasFocus true if cell has focus
      * @param row  the row of the cell to render
      * @param column the column of the cell to render
-     * @return
-     * Componente della tabella di cui è stato eseguito il render.
+     * @return Componente della tabella di cui è stato eseguito il render.
      */
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {

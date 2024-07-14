@@ -1,26 +1,21 @@
-package it.unipv.ingsfw.view;   //Definisce il package in cui è contenuta la classe AttemptTable
-
-// importazioni utili alla corretta definizione aspetti grafici
+package it.unipv.ingsfw.view;
 
 import javax.swing.*;
 import java.awt.*;
 
 /**
- * Componente tabellare dell'interfaccia di gioco.
+ * Classe che rappresenta una tabella di gioco.
+ * Estende la classe JTable per gestire le operazioni grafiche di definizione
+ * e aggiornamento dei componenti.
  */
 public class AttemptsTable extends JTable {
-//    Dichiarazioni:
-
-
-//    Costruttore:
 
     /**
-     * Definisce le caratteristiche grafiche della tabella di gioco e del popup collegato.
-     * @param attemptTableModel
-     * Modello della tabella di gioco contenente le impostazioni della stessa.
+     * Costruttore che definisce le caratteristiche grafiche della tabella di gioco.
+     *
+     * @param attemptTableModel Modello della tabella di gioco contenente le impostazioni della stessa.
      */
     public AttemptsTable(AttemptsTableModel attemptTableModel) {
-//        Inizializzazioni:
 
         super(attemptTableModel);
         AttemptsTableCellRenderer attemptsTableCellRenderer = new AttemptsTableCellRenderer();
@@ -37,6 +32,12 @@ public class AttemptsTable extends JTable {
 //        creazione nuovo font per testo visualizzato
         setFont(new Font("Inconsolata", Font.BOLD, 16));
     }
+
+    /**
+     * Acquisisce il modello della tabella.
+     *
+     * @return il modello corrente della tabella.
+     */
 
     public AttemptsTableModel getModel() {
         return (AttemptsTableModel) super.getModel();

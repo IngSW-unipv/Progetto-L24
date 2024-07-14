@@ -1,18 +1,21 @@
-package it.unipv.ingsfw.view;   //Definisce il package in cui si trova la classe MainHeaderRenderer
-// importazioni utili alla corretta definizione aspetti grafici
+package it.unipv.ingsfw.view;
+
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
 /**
- * Componente dell'interfaccia collegato alla tabella di gioco adibito al render degli header centrali.
+ * Classe che rappresenta il renderer principale per la tabella di gioco.
+ * Estende JLabel per gestire le proprietà del testo nel header.
+ * Implementa TableCellRenderer per gestire l'acquisizione del componente da renderizzare.
  */
+
 public class MainHeaderRenderer extends JLabel implements TableCellRenderer {
-//    Costruttore:
 
     /**
-     * Definizione delle proprietà grafiche del renderer.
+     * Costruttore che definisce le proprietà grafiche del renderer.
      */
+
     public MainHeaderRenderer() {
 //        definizione e applicazione nuovo font header
         setFont(new Font("Inconsolata", Font.BOLD, 20));
@@ -29,7 +32,7 @@ public class MainHeaderRenderer extends JLabel implements TableCellRenderer {
     }
 
     /**
-     * Acquisizione del componente di cui è stato eseguito il render.
+     * Metodo per l'acquisizione del componente di cui è stato eseguito il render.
      * @param table           the <code>JTable</code> that is asking the
      *                          renderer to draw; can be <code>null</code>
      * @param value           the value of the cell to be rendered.  It is
@@ -51,11 +54,12 @@ public class MainHeaderRenderer extends JLabel implements TableCellRenderer {
      *                          <code>row</code> is -1
      * @param column          the column index of the cell being drawn
      *
-     * @return
-     * Il componente renderizzato.
+     * @return il componente renderizzato.
      */
+
     @Override
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+                                                   boolean hasFocus, int row, int column) {
 //        conversione valori numerici in stringhe
         setText(value.toString());
 //        ritorno del renderer

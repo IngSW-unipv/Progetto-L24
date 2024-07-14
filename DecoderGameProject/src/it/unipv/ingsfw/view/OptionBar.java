@@ -1,53 +1,30 @@
-package it.unipv.ingsfw.view;   //Definisce il package in cui si trova la classe OptionBar
-// importazioni utili alla corretta definizione aspetti grafici
+package it.unipv.ingsfw.view;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
 /**
- * Componente interattivo dell'interfaccia adibito alla scelta della difficoltà.
+ * Classe che rappresenta il menu con l' impostazione della difficoltà.
+ * Estende la classe JMenuBar per la gestione delle impostazioni grafiche
+ * e del comportamento dei componenti.
  */
+
 public class OptionBar extends JMenuBar {
 
-//    Definizioni:
-
-    /**
-     * Primo menu della barra.
-     */
     JMenu firstMenu;
-    /**
-     * Bottone di scelta della difficoltà facile.
-     */
     JRadioButton difficultyEasy;
-    /**
-     * Bottone di scelta della difficoltà normale.
-     */
     JRadioButton difficultyNormal;
-    /**
-     * Bottone di scelta della difficoltà difficile.
-     */
     JRadioButton difficultyHard;
-    /**
-     * Bottone di conferma della difficoltà.
-     */
     JMenuItem setButton;
-    /**
-     * Gruppo dei bottoni di scelta della difficoltà.
-     */
     ButtonGroup difficultyGroup;
-    /**
-     * Etichetta di descrizione del menu.
-     */
     JLabel difficultyLabel;
 
-//    Costruttore:
-
     /**
-     * Definizione delle proprietà grafiche e dell'organizzazione dei sotto-componenti della barra dei menu.
+     * Costruttore che definisce le proprietà grafiche e dell'organizzazione
+     * dei sotto-componenti della barra dei menu.
      */
-    public OptionBar() {
 
-//        Inizializzazioni:
+    public OptionBar() {
 
         firstMenu = new JMenu("File");
         difficultyGroup = new ButtonGroup();
@@ -77,17 +54,34 @@ public class OptionBar extends JMenuBar {
         firstMenu.add(setButton);
     }
 
+    /**
+     * Aggiunge un ActionListener al pulsante che gestisce la selezione della difficoltà.
+     * Quando il pulsante viene premuto, l'ActionListener fornito sarà notificato.
+     *
+     * @param listener l'ActionListener da associare al pulsante della difficoltà
+     */
+
     public void addDifficultyButtonListener(ActionListener listener) {
         setButton.addActionListener(listener);
     }
+
+    /**
+     * Restituisce la difficoltà attualmente selezionata dall'utente.
+     * Se nessuna delle opzioni di difficoltà è selezionata, restituisce una stringa vuota
+     * per impostazione predefinita.
+     *
+     * @return una stringa rappresentante la difficoltà selezionata ("EASY", "NORMAL" o "HARD")
+     */
 
     public String getDifficulty() {
         if(difficultyEasy.isSelected()) {
             return "EASY";
         } else if (difficultyNormal.isSelected()) {
             return "NORMAL";
-        } else {
+        } else if(difficultyHard.isSelected()) {
             return "HARD";
+        } else {
+            return "";
         }
     }
 }

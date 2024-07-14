@@ -47,3 +47,31 @@ SCENARI ALTERNATIVI:
     2 Inserimento di una sequenza con valori ripetuti:
         - Il Decoder tenta di confermare una sequenza con valori ripetuti
         - Viene segnalato al Decoder che la sequenza inserita non è valida a causa di codici ripetuti (colori uguali)
+
+
+CASO D'USO: Termine partita
+SCOPO: Permettere al giocatore di venire a conoscenza del risultato della partita al termine
+        dei tentativi a disposizione.
+ATTORI PRINCIPALI: Decoder
+STAKEHOLDERS:
+    -   Encoder: individuato il codice segreto o terminati i tentativi informato dello stato della partita
+PRECONDIZIONI: Viene individuato il codice segreto nei tentativi a disposizione o vengono terminati i tentativi.
+SCENARIO DI SUCCESSO:
+    1)  Il Decoder individua il codice segreto prima che terminino i propri tentativi
+    2)  Il sistema disattiva l'interfaccia di inserimento sequenze
+    3)  Il sistema segnala al Decoder il termine della partita
+    4)  Viene reso noto al giocatore il numero di turni eseguiti nella partita
+    5)  Viene aggiornato il punteggio del Decoder
+SCENARIO DI FALLIMENTO:
+    1)  Il Decoder termina tutti i tentativi a disposizione
+    2)  Il sistema disattiva l'interfaccia di inserimento sequenze
+    3)  Il sistema segnala al Decoder il termine della partita
+    4)  Viene reso noto al giocatore il codice segreto ed il punteggio dell' Encoder
+NOTE SUPPLEMENTARI:
+    1 Decidere di iniziare una nuova partita:
+        -   Terminata una partita il Decoder può decidere di intraprenderne una nuova
+        -   Per iniziare una nuova partita partita è necessario scegliere nuovamente una difficoltà di gioco
+    2 Punteggi:
+        -   Il punteggio conseguito varia in base alla difficoltà scelta e viene aggiunto al Decoder
+            solo in caso di vittoria
+        -   Tutte le partite perse o quelle non completate vengono contate nel punteggio dell' Encoder.
