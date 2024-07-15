@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"it.unipv.ingsfw"},{"l":"it.unipv.ingsfw.controller"},{"l":"it.unipv.ingsfw.model"},{"l":"it.unipv.ingsfw.view"}];updateSearchResults();
