@@ -1,0 +1,18 @@
+DECODERGAME PROJECT
+
+-   Viene richiesto un metodo di interfacciamento tra il sistema ed il giocatore che permetta quest'ultimo
+    di selezionare la difficoltà di gioco attraverso ad esempio un menu.
+
+-   Il sistema, attraverso un algoritmo pseudocasuale, deve poter realizzare una sequenza di pioli codice,
+    definendo un nuovo codice segreto per ogni partita.
+
+-   Evitando di interrompere la comunicazione tra il sistema e l'utente, è necessario realizzare un processo
+    di valutazione delle sequenze inserite, confrontandole con il codice segreto della partita in corso.
+
+-   Tale processo deve rispettare tempistiche minime permettendo all'utente un'esperienza di gioco fluida.
+
+-   Il sistema deve prevedere una risposta alla sequenza inserita dall'utente attraverso valori numerici di semplice
+    comprensione che determinino il livello di vicinanza tra la sequenza inserita ed il codice segreto.
+
+-   Nel segnalare all'utente il termine della partita è necessario definire un processo di comunicazione
+    con l'interfaccia attraverso, per esempio, di un messaggio di testo che descriva lo stato/caratteristiche di gioco.

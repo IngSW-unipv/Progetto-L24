@@ -1,0 +1,48 @@
+DECIFRATORE:
+
+	Entità principale che interagisce con il sistema per identificare la corretta combinazione di colori.
+	
+CODIFICATORE:
+
+	Entità che si occupa della creazione della combinazione di colori da decifrare.
+	
+MASTERMIND-GAME:
+
+	Gioco ispirato dalle metodologie di codifica e decodifica delle informazioni che richiede al giocatore
+	di individuare una sequenza di colori tramite il processo di "trial and error" grazie all'aiuto di indizi forniti
+	dal sistema nei tentativi precedentemente effettuati.
+	
+SEQUENZA:
+
+	Insieme di valori definiti come il principale oggetto del gioco. Vengono rappresentati nel gioco attraverso
+	un insieme di quattro pioli colorati.
+	
+PIOLO:
+
+	Entità di base e parte di una combinazione che contiene un informazione univoca necessaria per il gioco.
+
+PIOLO CODICE:
+
+    Variante di piolo utilizzata per rappresentare il codice segreto e le sequenze definite dal decifratore.
+    Si identifica univocamente attraverso il colore associato.
+
+PIOLO CHIAVE:
+
+	Variante di piolo utilizzata per rappresentare gli indizi forniti dal sistema al decifratore.
+	Può rappresentare due informazioni differenti tra loro in base al colore che li contraddistingue.
+	
+TENTATIVI:
+
+	Informazione riguardante il numero di possibili azioni attribuibili al giocatore per partita.
+	
+COLORE:
+
+	Informazione di base del gioco utilizzata come semplice interpretazione per il giocatore di codici alfanumerici
+	o binari.
+
+INDIZIO:
+
+    Informazione complessiva di 4 pioli chiave per tentativo che descrive, attraverso valori numeri, lo stato
+    di correttezza di una sequenza definita dal decifratore.
+
+
