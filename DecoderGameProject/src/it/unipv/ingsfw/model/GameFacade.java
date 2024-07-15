@@ -32,7 +32,7 @@ public class GameFacade {
         for(int i = 0; i < Colors.values().length; i++) {
             colorList[i] = Colors.values()[i].getColorName();
         }
-        System.out.println("Model is ready!");
+//        System.out.println("Model is ready!");
     }
 
     /**
@@ -193,7 +193,7 @@ public class GameFacade {
     public void playTurn(ArrayList<Color> sequence) {
         this.game.addSequence(sequence);
         int[] hint = this.encoder.evaluateSequence(sequence);
-        System.out.println(hint[0] + " " + hint[1]);
+//        System.out.println(hint[0] + " " + hint[1]);
         this.game.addHint(hint);
         this.encoder.notifyObservers(hint, this.game.getAttemptPlayed());
     }

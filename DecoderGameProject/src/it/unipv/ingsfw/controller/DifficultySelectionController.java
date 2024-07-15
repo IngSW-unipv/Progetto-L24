@@ -69,7 +69,6 @@ public class DifficultySelectionController {
                 playersController.retrieveDecoderPoints());
 //        Abilitazione del pulsante di controllo sequenze
         viewFacade.enableSequenceCheckButton();
-        System.out.println(playersController.getSecretCodeNames());
     }
 
 }

@@ -81,7 +81,7 @@ public class TurnController {
                 if (gameController.checkWin() || !gameController.hasThisGameAttemptsLeft()) {
                     endGame();
                 }
-                System.out.println(gameController.retrieveAttemptsPlayed());
+//                System.out.println(gameController.retrieveAttemptsPlayed());
             }
         }
     }
@@ -95,7 +95,7 @@ public class TurnController {
             gameController.winThisGame();
 //            Visualizzazione messaggio di vittoria
             viewFacade.showVictoryMessage(gameController.getGame().getAttemptPlayed());
-            System.out.println(playersController.retrieveDecoderPoints());
+//            System.out.println(playersController.retrieveDecoderPoints());
         } else {
 //            Disabilitazione bottone di verifica sequenze
             viewFacade.disableSequenceCheckButton();
