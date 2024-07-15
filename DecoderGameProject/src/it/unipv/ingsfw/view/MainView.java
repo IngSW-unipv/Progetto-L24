@@ -43,9 +43,9 @@ public class MainView extends JFrame {
         attemptsTable = new AttemptsTable(new AttemptsTableModel(0));
         attemptsTable.getTableHeader().setDefaultRenderer(new MainHeaderRenderer());
         attemptsTable.getTableHeader().getColumnModel()
-                .getColumn(0).setHeaderRenderer(new wrongPosHeaderRenderer());
+                .getColumn(0).setHeaderRenderer(new WrongPosHeaderRenderer());
         attemptsTable.getTableHeader().getColumnModel()
-                        .getColumn(5).setHeaderRenderer(new rightPosHeaderRenderer());
+                        .getColumn(5).setHeaderRenderer(new RightPosHeaderRenderer());
         comboBoxes = new ComboBox[4];
         checkButton = new CheckButton();
         centerPanel.add(infoLabel, BorderLayout.PAGE_START);
@@ -136,9 +136,9 @@ public class MainView extends JFrame {
     public void setupAttemptsTable(int attempts) {
         this.getAttemptsTable().setModel(new AttemptsTableModel(attempts));
         this.getAttemptsTable().getTableHeader().getColumnModel().
-                getColumn(0).setHeaderRenderer(new graphics.wrongPosHeaderRenderer());
+                getColumn(0).setHeaderRenderer(new WrongPosHeaderRenderer());
         this.getAttemptsTable().getTableHeader().getColumnModel().
-                getColumn(5).setHeaderRenderer(new rightPosHeaderRenderer());
+                getColumn(5).setHeaderRenderer(new RightPosHeaderRenderer());
     }
 
     /**

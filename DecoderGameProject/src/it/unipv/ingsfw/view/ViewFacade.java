@@ -27,7 +27,7 @@ public class ViewFacade implements Observer {
     private ViewFacade() {
         mainview = new MainView();
         decoderNameDialog = new DecoderNameDialog(this.mainview);
-        System.out.println("View is ready!");
+//        System.out.println("View is ready!");
     }
 
     /**

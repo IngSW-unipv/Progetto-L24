@@ -10,13 +10,13 @@ import java.awt.*;
  * Implementa TableCellRenderer per gestire l'acquisizione del componente da renderizzare.
  */
 
-public class wrongPosHeaderRenderer extends JLabel implements TableCellRenderer {
+public class WrongPosHeaderRenderer extends JLabel implements TableCellRenderer {
 
     /**
      * Costruttore che definisce le proprietà grafiche del renderer.
      */
 
-    public wrongPosHeaderRenderer() {
+    public WrongPosHeaderRenderer() {
 
 //        definizione e applicazione nuovo font
         setFont(new Font("Inconsolata", Font.BOLD, 20));

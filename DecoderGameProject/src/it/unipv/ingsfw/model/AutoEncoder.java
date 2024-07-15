@@ -37,7 +37,7 @@ public class AutoEncoder implements EncoderStrategy {
 //        ciclo per la generazione di un colore tra quelli predefiniti
         for(int i = 0; i < 4; i++) {
             do {
-                color = graphics.Colors.values()[random.nextInt(Colors.values().length)].getColoreRGB();
+                color = Colors.values()[random.nextInt(Colors.values().length)].getRgbColor();
 //                Ripetizione della generazione in caso di colori uguali
             } while (secretCode.contains(color));
 //            Salvataggio del colore nel codice segreto
@@ -57,7 +57,7 @@ public class AutoEncoder implements EncoderStrategy {
 
     @Override
     public int[] evaluateSequence(ArrayList<Color> attemptSequence) {
-        if (attemptSequence != null && secretCode != null) {
+        if (attemptSequence != null) {
 //            Variabile locale che ospiterà l'indizio calcolato
             int[] hint = new int[2];
 //            ciclo esterno per l'analisi di eventuali uguaglianze nella stessa posizione

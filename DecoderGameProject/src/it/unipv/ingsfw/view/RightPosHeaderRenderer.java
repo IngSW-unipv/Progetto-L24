@@ -10,13 +10,13 @@ import java.awt.*;
  * Implementa TableCellRenderer per gestire l'acquisizione del componente da renderizzare.
  */
 
-public class rightPosHeaderRenderer extends JLabel implements TableCellRenderer {
+public class RightPosHeaderRenderer extends JLabel implements TableCellRenderer {
 
     /**
      * Costruttore che definisce le proprietà grafiche del renderer.
      */
 
-    public rightPosHeaderRenderer() {
+    public RightPosHeaderRenderer() {
 //        definizione e applicazione nuovo font
         setFont(new Font("Inconsolata", Font.BOLD, 20));
 //        impostazione di allineamento centrato del testo
