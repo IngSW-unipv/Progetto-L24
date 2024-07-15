@@ -1,17 +1,98 @@
 DECODERGAME PROJECT
 
--   Il sistema deve permettere al giocatore di completare una partita al gioco DecoderGame.
+1)  Inserimento del nome del giocatore
 
--   Il sistema deve permettere al giocatore di selezionare una difficoltà di gioco.
+    -   Descrizione: Il sistema deve permettere al giocatore di inserire il proprio nome
+    -   Priorità: media
+    -   Criteri di accettazione:
+        -   All'inizio del gioco, il sistema deve permettere al giocatore di inserire il proprio nome attraverso
+            l'interfaccia.
+        -   Il sistema deve salvare e visualizzare il nome del giocatore durante la partita.
 
--   Il sistema deve poter definire autonomamente il codice segreto.
+2)  Completamento di una partita
 
--   Il giocatore deve poter definire le proprie combinazioni di pioli codice.
+    -   Descrizione: Il sistema deve permettere al giocatore di completare una o più partite
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   L'utente deve poter giocare una partita dall'inizio alla fine.
+        -   Il sistema deve registrare e notificare la fine di una partita con un messaggio di vittoria o sconfitta
+            aggiornando il punteggio del giocatore.
+        -   Il sistema deve permettere all'utente di eseguire un reset del gioco per permettergli di giocare nuovamente
+            mantenendo il punteggio precedentemente raggiunto.
 
--   Il sistema deve essere in grado di confrontare sequenze valutando il loro livello di correttezza.
+3)  Selezione della difficoltà di gioco
 
--   Il sistema deve poter fornire al giocatore gli indizi necessari per metterlo nella condizione di ragionare
-    sulle mosse effettuate.
+    -   Descrizione: Il sistema deve permettere al giocatore di selezionare una difficoltà
+    -   Priorità: media
+    -   Criteri di accettazione:
+        -   l'utente deve poter scegliere tra almeno 3 differenti difficoltà (facile, normale, difficile).
+        -   La difficoltà selezionata deve influenzare il numero di tentativi a disposizione dell'utente.
 
--   Il sistema deve avvisare il giocatore in caso di vittoria o sconfitta proponendo, nel secondo caso, la sequenza
-    corretta.
+4)  Auto generazione del codice segreto
+
+    -   Descrizione: Il sistema deve essere in grado di generare autonomamente il codice segreto da individuare
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   Il sistema deve generate casualmente un codice segreto all'inizio di ogni partita.
+        -   Il codice segreto generato deve essere conforme con le regole di gioco.
+
+5)  Definizione delle sequenze da parte del giocatore
+
+    -   Descrizione: l'utente deve poter definire le proprie combinazioni
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   l'utente deve poter inserire attraverso l'interfaccia una combinazione per tentativo a disposizione.
+        -   Il sistema deve accettare solamente le combinazioni conformi alle regole di gioco e valutarle.
+
+6)  Confronto delle combinazioni
+
+    -   Descrizione: Il sistema deve essere in grado di confrontare le combinazioni inserite dall'utente con
+                        il codice segreto valutando il livello di correttezza
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   Per ogni tentativo il sistema deve confrontare la combinazione inserita dall'utente con il codice segreto.
+        -   Il sistema deve fornire un riscontro per ogni valutazione effettuata.
+
+7)  Fornitura di indizi al giocatore
+
+    -   Descrizione: Il sistema deve fornire al giocatore gli indizi necessari per metterlo nella condizione
+                        di ragionare sulle mosse effettuate
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   Il sistema deve fornire indizi attraverso l'interfaccia sui tentativi precedentemente effettuati.
+        -   Gli indizi devono essere chiari all'utente permettendogli di migliorare la propria strategia.
+
+8)  Notifica di vittoria o sconfitta
+
+    -   Descrizione: Il sistema deve avvisare il giocatore in caso di vittoria o sconfitta proponendo, nel primo caso
+                        il numero di tentativi effettuati e nel secondo il codice segreto
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   Il sistema deve notificare l'utente tramite l'interfaccia con un messaggio se il codice segreto
+            è stato indovinato.
+        -   Il sistema deve notificare l'utente tramite l'interfaccia con un messaggio se il numero di tentativi
+            a disposizione è terminato.
+        -   In caso di vittoria, il sistema deve mostrare all'utente il numero di tentativi impiegati per indovinare
+            il codice segreto.
+        -   In caso di sconfitta, il sistema deve mostrare all'utente il codice segreto ed il messaggio appropriato.
+
+
+STAKEHOLDERS
+
+1)   Decoder
+        Descrizione: entità principale che partecipa al gioco cercando di individuare la combinazione corretta
+                        del codice segreto
+        Ruoli e responsabilità:
+            -   inserisce il proprio nome
+            -   seleziona la difficoltà di gioco
+            -   definisce le combinazioni e analizza gli indizi forniti
+            -   completa il gioco con successo aumentando il punteggio o riceve la sequenza corretta in caso di
+                sconfitta
+
+2)  Encoder
+        Descrizione: entità che crea la combinazione segreta che il decoder deve individuare
+        Ruoli e responsabilità:
+            -   genera il codice segreto all'inizio di ogni partita
+            -   valuta le combinazioni proposte dal decoder fornendo indizi
+            -   fornisce dettagli in caso di vittoria o sconfitta
+

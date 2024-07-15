@@ -1,18 +1,59 @@
 DECODERGAME PROJECT
 
--   Viene richiesto un metodo di interfacciamento tra il sistema ed il giocatore che permetta quest'ultimo
-    di selezionare la difficoltà di gioco attraverso ad esempio un menu.
+1)  Generazione pseudocasuale codice segreto
 
--   Il sistema, attraverso un algoritmo pseudocasuale, deve poter realizzare una sequenza di pioli codice,
-    definendo un nuovo codice segreto per ogni partita.
+    -   Descrizione: In assenza di un utente che generi un nuovo codice segreto si prevede la presenza di un processo
+                        che generi, attraverso un algoritmo pseudocasuale, un nuovo codice
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   definizione di un'interfaccia comune tra Encoder come utente e Encoder come sistema
+        -   prevedere un implementazione autonoma del Encoder che possa generare autonomamente nuovi codici segreti
+            attraverso l'uso di un algoritmo pseudocasuale conforme con le regole di gioco
 
--   Evitando di interrompere la comunicazione tra il sistema e l'utente, è necessario realizzare un processo
-    di valutazione delle sequenze inserite, confrontandole con il codice segreto della partita in corso.
+2)  Metodo di valutazione sequenze
 
--   Tale processo deve rispettare tempistiche minime permettendo all'utente un'esperienza di gioco fluida.
+    -   Descrizione: In assenza di un utente che analizzi la sequenza inserita dal Decoder e la confronti con
+                        il codice segreto si prevede la presenza di un processo che svolga tali azioni.
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   definizione di un interfaccia comune tra Encoder come utente ed Encoder come sistema
+        -   prevedere un implementazione autonoma dell' Encoder che possa effettuare il confronto tra due sequenze
 
--   Il sistema deve prevedere una risposta alla sequenza inserita dall'utente attraverso valori numerici di semplice
-    comprensione che determinino il livello di vicinanza tra la sequenza inserita ed il codice segreto.
+3)  Registro degli indizi
 
--   Nel segnalare all'utente il termine della partita è necessario definire un processo di comunicazione
-    con l'interfaccia attraverso, per esempio, di un messaggio di testo che descriva lo stato/caratteristiche di gioco.
+    -   Descrizione:  Evitando complicazioni per l'Encoder è necessario definire un'entità che possa immagazzinare
+                        tutti gli indizi generati dalle valutazioni.
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   definizione di una nuova entità adibita all'immagazzinamento di tutti gli indizi generati nel corso
+            di una partita
+        -   possibilità di inserire nuovi indizi o acquisirne di già presenti
+
+4)  Tempistiche di valutazione sequenze
+
+    -   Descrizione: Minimizzare il tempo necessario alla valutazione delle sequenze e la conseguente definizione
+                        degli indizi per ogni tentativo permettendo all'utente un'esperienza di gioco fluida
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   suddivisione dei compiti tra la comparazione delle sequenze e la definizione di un nuovo indizio
+        -   applicazione di sistema sincronizzato che permetta di evitare l'interruzione dell'interfaccia durante
+            le valutazioni
+
+5)  Interfaccia e componenti semplici e comprensibili
+
+    -   Descrizione: Definire un'interfaccia di semplice comprensibilità per utenti sia molto giovani sia anziani
+    -   Priorità: media
+    -   Criteri di accettazione:
+        -   implementazione di entità grafiche che permettano di semplificare le caratteristiche del gioco,
+            nello specifico il codice segreto, le sequenze e gli indizi.
+
+6)  Segnalazioni di fine partita
+
+    -   Descrizione: Permettere all'utente di comprendere lo stato del gioco alla terminazione di una partita attraverso
+                        l'interazione con l'interfaccia
+    -   Priorità: alta
+    -   Criteri di accettazione:
+        -   implementazione di processi comunicativi, attraverso l'interfaccia, che descrivano lo stato del gioco
+            sia in caso di vittoria sia in caso di sconfitta
+        -   definizione di componenti, testuali per semplicità di comprensione, di interazione nell'interfaccia
+            per tali descrizioni

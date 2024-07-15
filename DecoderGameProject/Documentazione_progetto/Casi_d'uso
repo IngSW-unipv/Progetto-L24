@@ -1,33 +1,77 @@
-CASO D'USO:   Giocare una partita
-SCOPO:  Completare le azioni descritte nel documento delle regole di gioco per svolgere una partita.
-ATTORI PRINCIPALI:  Codificatore, Decifratore, Sistema
+CASO D'USO: Preparazione gioco
+SCOPO:  Acquisizione di informazioni del giocatore e preparazione all'avvio del gioco
+ATTORI PRINCIPALI:  Decoder, Encoder
 STAKEHOLDERS:
-
-    -   Codificatore: crea il codice segreto.
-
-    -   Decifratore: inventa sequenze da sottoporre al sistema per identificare il codice segreto.
-
-    -   Sistema: **definisce ed esegue i processi di valutazione dei codici inseriti dal decifratore.**
-
-PRECONDIZIONI:  Codificatore e decifratore devono conoscere il gioco e le sue regole
-
-CONDIZIONE DI SUCCESSO: Il decifratore individua, nei tentativi forniti, la sequenza corretta.
-
+    -   Encoder: crea il codice segreto
+    -   Decoder: inserisce il proprio nome
+PRECONDIZIONI:  Entrambi gli attori devono conoscere le regole di gioco; Il Decoder deve decidere
+                    il proprio nome di gioco.
+CONDIZIONE DI SUCCESSO: Il decoder inserisce un nome valido che viene visualizzato nell'interfaccia e
+                           l'Encoder definisce un nuovo codice segreto valido per le regole di gioco.
 SCENARIO DI SUCCESSO:
+    1   All'avvio del sistema viene richiesto al Decoder di inserire il proprio nome tramite l'interfaccia di gioco
+    2   Tale informazione viene salvata e riproposta nell'interfaccia assieme alla definizione iniziale del punteggio
+    3   L'Encoder definisce un nuovo codice segreto
+    4   Il codice viene salvato tra le informazioni della partita
+    5   Terminazione dello scenario con l'interfaccia che presenta il nome del Decoder ed un punteggio azzerato e
+        la presenza, seppur nascosta del nuovo codice segreto da decifrare
+SCENARI ALTERNATIVI:
+    1 Nominativo non valido:
+        -   Viene segnalato all'utente l'invalidità del nominativo inserito
+        -   Viene richiesto all'utente un nuovo nominativo
+    2 Codice segreto non valido:
+        -   Viene segnalato al sistema l'invalidità del codice generato
+        -   Vengono eseguiti n nuovi tentativi di generazione
+        -   In assenza di convalida del nuovo tentativo si segnala all'utente il problema proponendo una soluzione
 
-    1   Il decifratore inizia la partita scegliendo la difficoltà con la quale vuole affrontare il gioco.
 
-    2   Il codificatore definisce la sequenza da decifrare e presenta al giocatore l'ambiente di gioco.
+CASO D'USO: Esecuzione gioco
+SCOPO: Permettere al giocatore di scegliere la difficoltà di gioco e di completare tutti i tentativi
+        a propria disposizione.
+ATTORI PRINCIPALI: Decoder, Encoder
+STAKEHOLDERS:
+    -   Encoder: esegue i confronti tra le sequenze inserite ed il codice segreto definendo gli indizi
+    -   Decoder: sceglie la difficoltà ed inserisce ad ogni turno una sequenza che deve essere valutata
+PRECONDIZIONI: Tutte le operazioni di preparazione del gioco devono essere completate.
+SCENARIO DI SUCCESSO:
+    1   Il Decoder sceglie la difficoltà di gioco
+    2   Tramite la difficoltà scelta viene definito il numero di turni a disposizione del Decoder
+    3   Inizia il tentativo con l'inserimento da parte del Decoder di una sequenza
+    4   La sequenza viene salvata e valutata dal Encoder
+    5   Terminata la valutazione l'Encoder definisce gli indizi legati al tentativo e li fornisce al Decoder
+    6   I passi da 3 a 5 vengono ripetuti per tutti i tentativi a disposizione
+SCENARI ALTERNATIVI:
+    1 Definizione sequenze senza aver deciso una difficoltà:
+        -   Il Decoder tenta di inserire e confermare una sequenza senza prima aver selezionato una difficoltà di gioco
+        -   Viene segnalato al Decoder la necessità di scegliere una difficoltà tra quelle disponibili
+    2 Inserimento di una sequenza con valori ripetuti:
+        - Il Decoder tenta di confermare una sequenza con valori ripetuti
+        - Viene segnalato al Decoder che la sequenza inserita non è valida a causa di codici ripetuti (colori uguali)
 
-    3   Il decifratore, attraverso l'interazione con l'ambiente di gioco, sceglie una sequenza da sottoporre al sistema.
 
-    4   Il sistema analizza la sequenza del decifratore e fornisce indizi sulle differenze con la sequenza
-        da decifrare.   (I passi 3 e 4 vengono ripetuti per il numero di tentativi definiti dalla difficoltà scelta)
-
-    5   Il sistema, verificando la correttezza della sequenza inserita, avvisa il decifratore della vittoria e
-        del numero di tentativi compiuti.
-
-ESTENSIONE (CASO ALTERNATIVO DI FALLIMENTO):
-
-    5   Il sistema, verificando il termine del numero di tentativi a disposizione, avvisa il giocatore della
-        sconfitta, fornendo la sequenza corretta.
+CASO D'USO: Termine partita
+SCOPO: Permettere al giocatore di venire a conoscenza del risultato della partita al termine
+        dei tentativi a disposizione.
+ATTORI PRINCIPALI: Decoder
+STAKEHOLDERS:
+    -   Encoder: individuato il codice segreto o terminati i tentativi informato dello stato della partita
+PRECONDIZIONI: Viene individuato il codice segreto nei tentativi a disposizione o vengono terminati i tentativi.
+SCENARIO DI SUCCESSO:
+    1)  Il Decoder individua il codice segreto prima che terminino i propri tentativi
+    2)  Il sistema disattiva l'interfaccia di inserimento sequenze
+    3)  Il sistema segnala al Decoder il termine della partita
+    4)  Viene reso noto al giocatore il numero di turni eseguiti nella partita
+    5)  Viene aggiornato il punteggio del Decoder
+SCENARIO DI FALLIMENTO:
+    1)  Il Decoder termina tutti i tentativi a disposizione
+    2)  Il sistema disattiva l'interfaccia di inserimento sequenze
+    3)  Il sistema segnala al Decoder il termine della partita
+    4)  Viene reso noto al giocatore il codice segreto ed il punteggio dell' Encoder
+NOTE SUPPLEMENTARI:
+    1 Decidere di iniziare una nuova partita:
+        -   Terminata una partita il Decoder può decidere di intraprenderne una nuova
+        -   Per iniziare una nuova partita partita è necessario scegliere nuovamente una difficoltà di gioco
+    2 Punteggi:
+        -   Il punteggio conseguito varia in base alla difficoltà scelta e viene aggiunto al Decoder
+            solo in caso di vittoria
+        -   Tutte le partite perse o quelle non completate vengono contate nel punteggio dell' Encoder.
