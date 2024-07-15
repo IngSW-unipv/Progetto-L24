@@ -50,6 +50,8 @@ public class Encoder extends Player {
 
     /**
      * Acquisisce la strategia applicata all' Encoder.
+     *
+     * @return la strategia dell' Encoder.
      */
 
     public EncoderStrategy getStrategy() {

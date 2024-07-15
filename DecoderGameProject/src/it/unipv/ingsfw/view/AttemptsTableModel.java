@@ -8,7 +8,8 @@ import java.awt.*;
  */
 public class AttemptsTableModel extends AbstractTableModel {
 
-    int attempts; //    numero di tentativi associato al numero di righe della tabella
+//    numero di tentativi associato al numero di righe della tabella
+    int attempts;
 //    Array di stringhe che rappresentano le colonne della tabella con il rispettivo nome
     String[] columnNames = {"Pos. errata", "1°colore", "2°colore", "3°colore", "4°colore", "Pos. corretta"};
 //    matrice colori inseriti

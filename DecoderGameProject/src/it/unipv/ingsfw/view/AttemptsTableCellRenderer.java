@@ -12,6 +12,7 @@ public class AttemptsTableCellRenderer extends DefaultTableCellRenderer {
 
     /**
      * Operazioni di definizione del comportamento del renderer delle celle.
+     *
      * @param table  the <code>JTable</code>
      * @param value  the value to assign to the cell at
      *                  <code>[row, column]</code>

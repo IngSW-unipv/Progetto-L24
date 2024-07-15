@@ -19,6 +19,8 @@ public interface EncoderStrategy {
 
     /**
      * Genera il codice segreto secondo la lista di valori inserita come parametro.
+     *
+     * @param secretCode il codice segreto da inserire.
      */
 
     void setSecretCode(ArrayList<Color> secretCode);

@@ -127,6 +127,8 @@ public class GameController {
     /**
      * Richiede alla facade del modello di eseguire le operazioni necessarie
      * allo svolgimento del turno.
+     *
+     * @param sequence la sequenza inserita dal Decoder nel turno odierno.
      */
 
     public void startGameTurn(ArrayList<Color> sequence) {
