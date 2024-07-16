@@ -105,6 +105,6 @@ public class TurnController {
             viewFacade.showLooseMessage(gameController.executeSecretCodeConversion());
         }
 //        Modifica dello stato del gioco
-        gameController.endGame();
+        gameController.endThisGame();
     }
 }

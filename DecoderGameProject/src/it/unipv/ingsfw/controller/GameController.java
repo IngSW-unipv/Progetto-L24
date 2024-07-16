@@ -50,16 +50,16 @@ public class GameController {
      * Avvia il gioco.
      */
 
-    public void startGame() {
-        gameFacade.getGame().start();
+    public void startThisGame() {
+        gameFacade.startGame();
     }
 
     /**
      * Termina il gioco.
      */
 
-    public void endGame() {
-        gameFacade.getGame().end();
+    public void endThisGame() {
+        gameFacade.endGame();
     }
 
     /**
@@ -69,8 +69,8 @@ public class GameController {
      * @return true se lo stato corrisponde, false altrimenti.
      */
 
-    public boolean checkState(String state) {
-        return gameFacade.getGame().getState().equals(state);
+    public boolean checkThisGameState(String state) {
+        return gameFacade.getGameState().equals(state);
     }
 
     /**
@@ -90,7 +90,7 @@ public class GameController {
      */
 
     public int retrieveId() {
-        return gameFacade.getGame().getId();
+        return gameFacade.getThisGameId();
     }
 
     /**
@@ -100,7 +100,7 @@ public class GameController {
      */
 
     public int retrieveTotalAttempts() {
-        return gameFacade.getGame().getTotAttempts();
+        return gameFacade.getThisGameTotalAttempts();
     }
 
     /**
@@ -110,7 +110,7 @@ public class GameController {
      */
 
     public int retrieveAttemptsPlayed() {
-        return gameFacade.getGame().getAttemptPlayed();
+        return gameFacade.getThisGameAttemptsPlayed();
     }
 
     /**
@@ -171,7 +171,7 @@ public class GameController {
     public void updateGameDifficultyInfo(String difficulty) {
         gameFacade.getGame().defineTotalAttempts(difficulty);
         gameFacade.initializeAttemptsLeft();
-        gameFacade.getGame().initializeHints(gameFacade.getGame().getTotAttempts());
+        gameFacade.getGame().initializeHints(gameFacade.getThisGameTotalAttempts());
     }
 
     /**
