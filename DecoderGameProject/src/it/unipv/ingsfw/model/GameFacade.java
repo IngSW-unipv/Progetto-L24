@@ -86,6 +86,34 @@ public class GameFacade {
     }
 
     /**
+     * Genera un nuovo codice segreto utilizzando la strategia definita.
+     */
+
+    public void generateSecretCode() {
+        this.encoder.generateSecretCode();
+    }
+
+    /**
+     * Acquisisce dal decoder locale il nome.
+     *
+     * @return il nome del decoder.
+     */
+
+    public String getDecoderName() {
+        return this.encoder.getName();
+    }
+
+    /**
+     * Acquisisce dal decoder locale i punti.
+     *
+     * @return il punteggio odierno del decoder.
+     */
+
+    public int getDecoderPoints() {
+        return this.decoder.getPoints();
+    }
+
+    /**
      * Imposta il decoder per la partita corrente.
      *
      * @param decoder decoder da impostare.
@@ -161,6 +189,62 @@ public class GameFacade {
 
     public int getAttemptsLeft() {
         return attemptsLeft;
+    }
+
+    /**
+     * Modifica lo stato del gioco in "Started".
+     */
+
+    public void startGame() {
+        this.game.start();
+    }
+
+    /**
+     * Modifica lo stato del gioco in "Ended".
+     */
+
+    public void endGame() {
+        this.game.end();
+    }
+
+    /**
+     * Acquisisce lo stato attuale del gioco.
+     *
+     * @return lo stato del gioco.
+     */
+
+    public String getGameState() {
+        return this.game.getState();
+    }
+
+    /**
+     * Acquisisce l'ID del gioco attuale.
+     *
+     * @return l'ID del gioco.
+     */
+
+    public int getThisGameId() {
+        return this.game.getId();
+    }
+
+    /**
+     * Acquisisce il numero totale di tentativi per il gioco corrente.
+     *
+     * @return il numero totale di tentativi.
+     */
+
+    public int getThisGameTotalAttempts() {
+        return this.game.getTotAttempts();
+    }
+
+    /**
+     * Acquisisce il numero di tentativi effettuati per il gioco corrente.
+     *
+     * @return il numero di tentativi effettuati.
+     */
+
+    public int getThisGameAttemptsPlayed() {
+        return this.game.getAttemptPlayed();
     }
 
     /**

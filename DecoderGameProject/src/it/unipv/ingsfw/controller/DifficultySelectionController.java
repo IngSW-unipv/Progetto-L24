@@ -50,7 +50,7 @@ public class DifficultySelectionController {
 //        Controllo sulla presenza di un gioco precedente
         if(gameController.hasGame()) {
 //            Controllo sullo stato del gioco precedente
-            if(gameController.checkState("Ended")) {
+            if(gameController.checkThisGameState("Ended")) {
 //                Incremento dell'ID del gioco
                 newGameId = gameController.retrieveId() + 1;
             }
@@ -58,9 +58,9 @@ public class DifficultySelectionController {
 //        Creazione nuovo gioco
         gameController.newGame(newGameId);
 //        Definizione nuovo codice segreto
-        playersController.secretCodeGeneration();
+        playersController.setupSecretCode();
 //        Avvio del gioco
-        gameController.startGame();
+        gameController.startThisGame();
 //        Acquisizione e salvataggio informazioni sulla difficoltà scelta
         gameController.updateGameDifficultyInfo(viewFacade.getDifficultyChosen());
 //        Aggiornamento della vista con le nuove informazioni

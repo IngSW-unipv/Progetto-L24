@@ -59,8 +59,8 @@ public class PlayersController {
      * Genera il codice segreto tramite l' encoder.
      */
 
-    public void secretCodeGeneration() {
-        gameFacade.getEncoder().generateSecretCode();
+    public void setupSecretCode() {
+        this.gameFacade.generateSecretCode();
     }
 
     /**
@@ -70,7 +70,7 @@ public class PlayersController {
      */
 
     public String retrieveDecoderName() {
-        return gameFacade.getDecoder().getName();
+        return this.gameFacade.getDecoderName();
     }
 
     /**
@@ -80,7 +80,7 @@ public class PlayersController {
      */
 
     public int retrieveDecoderPoints() {
-        return gameFacade.getDecoder().getPoints();
+        return gameFacade.getDecoderPoints();
     }
 
     /**
